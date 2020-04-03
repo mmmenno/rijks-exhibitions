@@ -1,0 +1,45 @@
+body{
+	margin-bottom: 100px;
+}
+
+h1{
+	margin-top: 40px;
+	border-bottom: 5px solid #000;
+	padding-bottom: 12px;
+}
+h3{
+	border-top: 5px solid #DFDFDF;
+	margin-top: 12px;
+	padding-top: 6px;
+	font-size: 16px;
+}
+#decades{
+	margin-bottom: 20px;
+}
+#decades a{
+	font-size: 14px;
+	color: #000;
+	display: inline-block;
+	border-left: 1px solid #000;
+	padding-left: 10px;
+	margin-right: 10px;
+}
+#decades a:first-of-type{
+	border-left: none;
+	padding-left: 0;
+}
+.duration{
+	background-color: #FD6398;
+	height: 5px;
+	margin-top: -4px;
+}
+
+.rm-works{
+	background-color: #D55140;
+	display: inline-block;
+	padding:2px 6px;
+	border-radius: 20px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 11px;
+}
