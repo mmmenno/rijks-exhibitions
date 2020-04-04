@@ -11,6 +11,8 @@ function getSparqlResults($endpoint,$query){
 
 	// get cached data if recent
 	if(file_exists($datafile)){
+		echo $datafile . " found";
+		die;
 		$mtime = filemtime($datafile);
 		$timediff = time() - $mtime;
 		if($timediff < $maxcachetime){
