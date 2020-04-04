@@ -7,14 +7,13 @@ function getSparqlResults($endpoint,$query){
 	$url = $endpoint . '?query=' . urlencode($query) . "&format=json";
 	$urlhash = hash("md5",$url);
 	$currentdir = getcwd();
-	echo $currentdir;
 	$datafile = $currentdir . "/data/" . $urlhash . ".json";
+	//echo $datafile;
 	$maxcachetime = 60*60*2;
 
 	// get cached data if recent
 	if(file_exists($datafile)){
-		echo $datafile . " found";
-		die;
+		//echo $datafile . " found";
 		$mtime = filemtime($datafile);
 		$timediff = time() - $mtime;
 		if($timediff < $maxcachetime){
