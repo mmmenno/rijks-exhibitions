@@ -8,15 +8,23 @@ h1{
 	padding-bottom: 12px;
 }
 h2{
-	margin-top: 12px;
+	margin-top: 32px;
 	padding-top: 6px;
-	font-size: 18px;
+	padding-bottom: 6px;
+	font-size: 24px;
+	border-bottom: 5px solid #5A92D8;
 }
 h3{
 	border-top: 5px solid #DFDFDF;
 	margin-top: 12px;
 	padding-top: 6px;
 	font-size: 16px;
+}
+#dates h2{
+	margin-top: 12px;
+	padding-top: 6px;
+	font-size: 18px;
+	border-bottom: none;
 }
 a{
 	color: #000;
@@ -26,6 +34,30 @@ a:visited{
 }
 .light{
 	color: #ccc;
+}
+.infobutton{
+	float: right;
+	background-color: #8DC1EA;
+	color: #fff;
+	font-size: 9px;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+	border:none;
+	font-weight: bold;
+	padding-top: 4px;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+.infobutton:focus {
+    outline:none;
+}
+.description{
+	display: none;
+	position: absolute;
+	z-index: 100;
+	background-color: #fff;
+	padding-bottom: 10px;
+	border-bottom: 5px solid #ccc;
+	margin-right: 15px;
 }
 #decades{
 	margin-bottom: 20px;

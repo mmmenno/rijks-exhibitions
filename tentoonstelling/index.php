@@ -6,7 +6,10 @@ include("../functions.php");
 include("../queries/exhibition.php");
 
 
-//print_r($exhibition);
+// in: $_GET['id'] out: $rkdimages
+include("../queries/rkd.php");
+
+
 
 $exh = $exhibition['results']['bindings'][0];
 $exhtitle = $exh['exhtitle']['value'];
@@ -32,9 +35,16 @@ if($duration['days']){
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- jQuery -->
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+
 	<link rel="stylesheet" href="../assets/css/styles.css">
 
-	<title>Tentoonstellingen Rijksmuseum</title>
+	<title>Tentoonstelling Rijksmuseum</title>
 </head>
 <body>
 
@@ -74,14 +84,19 @@ if($duration['days']){
 				
 
 				echo '<div class="col-sm exh-object">';
-				if($imgurl){
-					echo '<a target="_blank" href="' . $permalink . '"><img src="' . $imgurl . '" /></a>';
-				}else{
-					echo '<a class="no-img" target="_blank" href="' . $permalink . '">afbeelding niet beschikbaar</a>';
-				}
-				echo '<em>' . $title . "</em><br />";
-				echo '<strong>' . $artist . "</strong><br />";
-				echo '' . $desc . "";
+					if($imgurl){
+						echo '<a target="_blank" href="' . $permalink . '"><img src="' . $imgurl . '" /></a>';
+					}else{
+						echo '<a class="no-img" target="_blank" href="' . $permalink . '">afbeelding niet beschikbaar</a>';
+					}
+					if(strlen($desc)){
+						echo '<button class="infobutton">i</button>';
+					}
+					echo '<em>' . $title . "</em><br />";
+					echo '<strong>' . $artist . "</strong><br />";
+					if(strlen($desc)){
+						echo '<div class="description">' . $desc . "</div>";
+					}
 				echo '</div>';
 
 				if($i%4==0){
@@ -95,7 +110,67 @@ if($duration['days']){
 			}
 			?>
 		</div>
+
+
+
+		<?php if(count($rkdimages['results']['bindings'])){ ?>
+
+		<h2>Bij het RKD gevonden tentoongestelde werken</h2>
+
+		<div class="row">
+
+			<?php
+			$i = 0;
+			foreach ($rkdimages['results']['bindings'] as $img) {
+
+				$i++;
+
+				$title = $img['title']['value'];
+				$imgurl = false;
+				if(isset($img['img']['value'])){
+					$imgurl = str_replace("=s0", "", $img['img']['value']);
+				}
+				$desc = $img['desc']['value'];
+				$artist = $img['artistLabel']['value'];
+				$institute = $img['instLabel']['value'];
+				$permalink = $img['permalink']['value'];
+
+				
+
+				echo '<div class="col-sm exh-object">';
+					if($imgurl){
+						echo '<a target="_blank" href="' . $permalink . '"><img src="' . $imgurl . '" /></a>';
+					}else{
+						echo '<a class="no-img" target="_blank" href="' . $permalink . '">afbeelding niet beschikbaar</a>';
+					}
+					echo '<em>' . $title . "</em><br />";
+					echo '<strong>' . $artist . "</strong><br />";
+					echo $institute;
+				echo '</div>';
+
+				if($i%4==0){
+					echo '</div>';
+					echo '<div class="row">';
+				}
+			}
+			for($x=0; $x<(4-$i%4); $x++){
+				echo '<div class="col-sm">';
+				echo '</div>';
+			}
+			?>
+		</div>
+
+		<?php } ?>
+
+
 	</div>
 
+
+<script>
+	$('.infobutton').click(function(){
+		console.log($(this).closest('.description'));
+		$(this).siblings('.description').toggle();
+	});
+</script>
 </body>
 </html>
