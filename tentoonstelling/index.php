@@ -45,6 +45,7 @@ if($duration['days']){
 		<h1><?= $exhtitle ?></h1>
 
 		<div id="dates">
+			<span class="light" style="float: right;">https://id.rijksmuseum.nl/<?= $_GET['id'] ?></span>
 			<h2><?= $duration['line'] ?></h2>
 			<div class="duration" style="<?= $durationstyle ?>"></div>
 		</div>
@@ -58,7 +59,7 @@ if($duration['days']){
 				if(!isset($img['obj']['value'])){
 					continue;
 				}
-				
+
 				$i++;
 
 				$title = $img['title']['value'];
@@ -66,6 +67,7 @@ if($duration['days']){
 				if(isset($img['img']['value'])){
 					$imgurl = str_replace("=s0", "", $img['img']['value']);
 				}
+				$desc = $img['desc']['value'];
 				$artist = $img['artist']['value'];
 				$permalink = $img['permalink']['value'];
 
@@ -78,7 +80,8 @@ if($duration['days']){
 					echo '<a class="no-img" target="_blank" href="' . $permalink . '">afbeelding niet beschikbaar</a>';
 				}
 				echo '<em>' . $title . "</em><br />";
-				echo '<strong>' . $artist . "</strong>";
+				echo '<strong>' . $artist . "</strong><br />";
+				echo '' . $desc . "";
 				echo '</div>';
 
 				if($i%4==0){

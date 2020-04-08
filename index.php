@@ -71,6 +71,7 @@ include("queries/exhibitionlist.php");
 					echo '<h3><a href="tentoonstelling/?id=' . $ttid . '">' . $title . '</a></h3>';
 					echo '<div class="duration" style="' . $durationstyle . '"></div>';
 					echo '<div class="small">' . $duration['line'] . '</div>';
+					echo '<div class="small light">' . $exh['tt']['value'] . '</div>';
 					if($rmworks){
 						echo '<div class="worksicon rm-works">' . $rmworks . '</div>';
 					}

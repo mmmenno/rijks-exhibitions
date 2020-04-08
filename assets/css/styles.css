@@ -24,6 +24,9 @@ a{
 a:visited{
 	color: #8B8B8B;
 }
+.light{
+	color: #ccc;
+}
 #decades{
 	margin-bottom: 20px;
 }

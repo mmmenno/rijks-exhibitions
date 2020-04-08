@@ -28,12 +28,14 @@ SELECT ?exhtitle ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SA
     ?aggr edm:isShownAt ?permalink .
     ?obj dc:title ?title .
     FILTER(LANG(?title)=\"nl\")
-    ?obj dc:description ?desc .
-    FILTER(LANG(?desc)=\"nl\")
-    optional{
+    OPTIONAL{
+      ?obj dc:description ?desc .
+      FILTER(LANG(?desc)=\"nl\")
+    }
+    OPTIONAL{
       ?obj dc:creator/skos:prefLabel ?artist .
     }
-    optional{
+    OPTIONAL{
       ?aggr edm:isShownBy ?img .  
     }
   }
