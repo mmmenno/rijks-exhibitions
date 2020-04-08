@@ -50,7 +50,10 @@ include("queries/exhibitionlist.php");
 				$i++;
 
 				$title = $exh['title']['value'];
-				$works = $exh['objects']['value'];
+				$ttid = str_replace("https://id.rijksmuseum.nl/", "", $exh['tt']['value']);
+				$rmworks = $exh['cRmImg']['value'];
+				$rmworkswithoutimgs = $exh['cRmNoImg']['value'];
+				$rkdworks = $exh['cRkdImg']['value'];
 
 				$duration = durationInfo($exh['start'],$exh['end']);
 				if($duration['days']){
@@ -65,11 +68,17 @@ include("queries/exhibitionlist.php");
 				//print_r($exh);
 
 				echo '<div class="col-sm">';
-					echo '<h3>' . $title . '</h3>';
+					echo '<h3><a href="tentoonstelling/?id=' . $ttid . '">' . $title . '</a></h3>';
 					echo '<div class="duration" style="' . $durationstyle . '"></div>';
 					echo '<div class="small">' . $duration['line'] . '</div>';
-					if($works){
-						echo '<div class="rm-works">' . $works . '</div>';
+					if($rmworks){
+						echo '<div class="worksicon rm-works">' . $rmworks . '</div>';
+					}
+					if($rmworkswithoutimgs){
+						echo '<div class="worksicon rm-works-noimg">' . $rmworkswithoutimgs . '</div>';
+					}
+					if($rkdworks){
+						echo '<div class="worksicon rkd-works">' . $rkdworks . '</div>';
 					}
 					//echo $exh['start']['value'];
 				echo '</div>';
