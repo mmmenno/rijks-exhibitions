@@ -53,12 +53,17 @@ function durationInfo($start,$end){
 		$month = substr($start['value'],5,2);
 		$line .= $months[(int)$month] . " ";
 		$from = strtotime($start['value']);
+		$day = date("d",strtotime($start['value'])) . " ";
 	}elseif($start['datatype']=="http://www.w3.org/2001/XMLSchema#gYearMonth"){
 		$month = substr($start['value'],5,2);
 		$line .= $months[(int)$month] . " ";
+		$day = "01";
+	}else{
+		$month = "01";
 	}
-	$year = substr($start['value'],0,4);
-	$line .= $year . " ";
+	$startyear = substr($start['value'],0,4);
+	$startdate = $startyear . "-" . $month . "-" . $day;
+	$line .= $startyear . " ";
 
 	$line .= "tot ";
 
@@ -67,12 +72,18 @@ function durationInfo($start,$end){
 		$month = substr($end['value'],5,2);
 		$line .= $months[(int)$month] . " ";
 		$to = strtotime($end['value']);
+		$day = date("d",strtotime($start['value'])) . " ";
 	}elseif($end['datatype']=="http://www.w3.org/2001/XMLSchema#gYearMonth"){
 		$month = substr($end['value'],5,2);
 		$line .= $months[(int)$month] . " ";
+		$day = "01";
+	}else{
+		$day = "31";
+		$month = "12";
 	}
-	$year = substr($end['value'],0,4);
-	$line .= $year . " ";
+	$endyear = substr($end['value'],0,4);
+	$enddate = $endyear . "-" . $month . "-" . $day;
+	$line .= $endyear . " ";
 
 
 	// nr of days, if start and end are proper dates
@@ -84,14 +95,38 @@ function durationInfo($start,$end){
 
 	return array(
 		"line" => $line,
-		"days" => $days
+		"days" => $days,
+		"startyear" => $startyear,
+		"startdate" => $startdate,
+		"enddate" => $enddate
 	);
 
 }
 
 
 
+function wordsFromTitleAsQueryString($str){
 
+	$notwanted = array("museum","kunst","tekeningen");
+	$thebestwords = array();
+	
+	$words = explode(" ", strtolower($str));
+	foreach ($words as $key => $value) {
+		if(	strlen($value) > 4
+			&& preg_match("/^[A-Za-z0-9]+$/", $value)
+			&& !in_array($value, $notwanted)
+		){
+			$thebestwords[] = $value;
+		}
+	}
+
+	if(count($thebestwords)){
+		return "+and+(" . implode("+or+", $thebestwords) . ")";
+	}else{
+		return "";
+	}
+
+}
 
 
 

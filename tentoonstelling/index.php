@@ -24,6 +24,15 @@ if($duration['days']){
 	$durationstyle = "display: none";
 }
 
+$delpherlink = 'https://www.delpher.nl/nl/kranten/results?query=';
+$delpherlink .= 'Rijksmuseum+and+tentoonstelling';
+$delpherlink .= wordsFromTitleAsQueryString($exhtitle);
+$delpherlink .= '&page=1&sortfield=date&cql%5B%5D=(date+_gte_+%22';
+$delpherlink .= date("d-m-Y",strtotime($duration['startdate'] . ' -3 days'));
+$delpherlink .= '%22)&cql%5B%5D=(date+_lte_+%22';
+$delpherlink .= date("d-m-Y",strtotime($duration['enddate']));
+$delpherlink .= '%22)&coll=ddd';
+
 
 ?>
 <!doctype html>
@@ -52,7 +61,9 @@ if($duration['days']){
 
 	<div class="container">
 
-		<h1><?= $exhtitle ?></h1>
+		<h1><a href="../">Rijksmuseum Tentoonstellingen</a></h1>
+
+		<h2 class="exhibitiontitle"><?= $exhtitle ?></h2>
 
 		<div id="dates">
 			<span class="light" style="float: right;">https://id.rijksmuseum.nl/<?= $_GET['id'] ?></span>
@@ -161,6 +172,36 @@ if($duration['days']){
 		</div>
 
 		<?php } ?>
+
+
+
+		<h2>In de media</h2>
+
+		<div class="row">
+			<div class="col-sm">
+				<?php if((int)$duration['startyear']<1996){ ?>
+					<p>
+						<a target="_blank" href="<?= $delpherlink ?>">Zoek zelf in Delpher</a> naar artikelen over deze tentoonstelling. We hebben al wat parameters in de link gestopt, zodat je artikelen binnen de juiste periode vindt waarin gerept wordt over een tentoonstelling, het Rijksmuseum en tenminste één woord uit de titel van de tentoonstelling.
+					</p>
+					<p>
+						Een recensie of artikel gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Voeg het <a href="">hier</a> toe.
+					</p>
+				<?php }else{ ?>
+					<p>
+						Anders dan bij oudere tentoonstellingen hier geen link naar Delpher, aangezien je daar geen kranten van na 1995 treft.
+					</p>
+					<p>
+						Elders een recensie gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Voeg het <a href="">hier</a> toe.
+					</p>
+				<?php } ?>
+
+				
+			</div>
+			<div class="col-sm">
+			</div>
+			<div class="col-sm">
+			</div>
+		</div>
 
 
 	</div>
