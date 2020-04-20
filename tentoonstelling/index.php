@@ -33,6 +33,9 @@ $delpherlink .= '%22)&cql%5B%5D=(date+_lte_+%22';
 $delpherlink .= date("d-m-Y",strtotime($duration['enddate']));
 $delpherlink .= '%22)&coll=ddd';
 
+$crowdsourcelink = "../crowdsourcing/add-article.php?ttid=" . $_GET['id'] . "&title=";
+$crowdsourcelink .= urlencode($exhtitle);
+
 
 ?>
 <!doctype html>
@@ -62,6 +65,10 @@ $delpherlink .= '%22)&coll=ddd';
 	<div class="container">
 
 		<h1><a href="../">Rijksmuseum Tentoonstellingen</a></h1>
+
+		<?php if(isset($_GET['msg'])){ ?>
+			<div class="msg"><?= $_GET['msg'] ?></div>
+		<?php } ?>
 
 		<h2 class="exhibitiontitle"><?= $exhtitle ?></h2>
 
@@ -184,14 +191,14 @@ $delpherlink .= '%22)&coll=ddd';
 						<a target="_blank" href="<?= $delpherlink ?>">Zoek zelf in Delpher</a> naar artikelen over deze tentoonstelling. We hebben al wat parameters in de link gestopt, zodat je artikelen binnen de juiste periode vindt waarin gerept wordt over een tentoonstelling, het Rijksmuseum en tenminste één woord uit de titel van de tentoonstelling.
 					</p>
 					<p>
-						Een recensie of artikel gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Voeg het <a href="">hier</a> toe.
+						Een recensie of artikel gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Meld het ons <a href="<?= $crowdsourcelink ?>">hier</a>. 
 					</p>
 				<?php }else{ ?>
 					<p>
 						Anders dan bij oudere tentoonstellingen hier geen link naar Delpher, aangezien je daar geen kranten van na 1995 treft.
 					</p>
 					<p>
-						Elders een recensie gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Voeg het <a href="">hier</a> toe.
+						Elders een recensie gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Meld het ons <a href="<?= $crowdsourcelink ?>">hier</a>.
 					</p>
 				<?php } ?>
 

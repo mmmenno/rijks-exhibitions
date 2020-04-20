@@ -34,6 +34,21 @@ h3{
 	font-size: 18px;
 	border: none;
 }
+label{
+	margin-top: 16px;
+	margin-bottom: 0;
+}
+.btn-primary{
+	margin-top: 16px;
+}
+#field-url{
+	display: none;
+}
+.msg{
+	background-color: #B5ECD2;
+	color: #668576;
+	padding: 5px 10px;
+}
 a{
 	color: #D55140;
 }
