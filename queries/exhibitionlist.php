@@ -21,11 +21,13 @@ PREFIX crm2: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX la: <https://linked.art/ns/terms/>
 PREFIX edm: <http://www.europeana.eu/schemas/edm/>
 PREFIX rijks: <https://id.rijksmuseum.nl/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 
-SELECT ?tt ?title ?start ?end 
+SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?rmobj1) AS ?cRmImg) 
     (COUNT( distinct ?rmobj2) AS ?cRmNoImg) 
     (COUNT( distinct ?rkdobj) AS ?cRkdImg)  
+    (COUNT( distinct ?wdobj) AS ?cWdImg) 
     WHERE {
   ?tt crm:P2_has_type <http://vocab.getty.edu/aat/300054766> .
   ?tt crm:P7_took_place_at rijks:103332 .
@@ -51,6 +53,13 @@ SELECT ?tt ?title ?start ?end
   OPTIONAL{
     ?tt crm2:P16_used_specific_object ?rkdobj .
     FILTER STRSTARTS(STR(?rkdobj),'https://data.rkd')
+  }
+  OPTIONAL{
+    ?tt skos:closeMatch ?wdtt .
+    FILTER STRSTARTS(STR(?wdtt),'http://www.wikidata.org') .
+      SERVICE <https://query.wikidata.org/sparql> {
+        ?wdobj wdt:P608 ?wdtt .
+      }
   }
   
 } 

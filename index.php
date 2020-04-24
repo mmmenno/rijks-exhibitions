@@ -37,9 +37,24 @@ include("queries/exhibitionlist.php");
 		<div id="decades">
 			<?php
 			for($i=1880; $i<2020; $i+=10){
-				echo '<a href="index.php?startyear=' . $i . '">' . $i . '\'s</a>';
+				if($i==$_GET['startyear']){
+					echo '<a style="text-decoration:underline" href="index.php?startyear=' . $i . '">' . $i . '\'s</a>';
+				}else{
+					echo '<a href="index.php?startyear=' . $i . '">' . $i . '\'s</a>';
+				}
 			}
 			?>
+		</div>
+
+		<div class="row">
+			<div id="legend" class="col-sm">
+				<div class="worksicon rm-works">3</div>= RM objecten
+				<div class="worksicon rm-works-noimg">3</div>= RM objecten zonder afb
+				<div class="worksicon rkd-works">3</div>= RKDimages
+				<div class="worksicon wd-works">3</div>= Wikidata images
+				<div class="worksicon reviews">3</div>= krantenartikelen
+				<div class="duration" style="width: 45px; display: inline-block;"></div> = lengte tentoonstelling
+			</div>
 		</div>
 
 		<div class="row">
@@ -54,6 +69,7 @@ include("queries/exhibitionlist.php");
 				$rmworks = $exh['cRmImg']['value'];
 				$rmworkswithoutimgs = $exh['cRmNoImg']['value'];
 				$rkdworks = $exh['cRkdImg']['value'];
+				$wdworks = $exh['cWdImg']['value'];
 
 				$duration = durationInfo($exh['start'],$exh['end']);
 				if($duration['days']){
@@ -80,6 +96,9 @@ include("queries/exhibitionlist.php");
 					}
 					if($rkdworks){
 						echo '<div class="worksicon rkd-works">' . $rkdworks . '</div>';
+					}
+					if($wdworks){
+						echo '<div class="worksicon wd-works">' . $wdworks . '</div>';
 					}
 					//echo $exh['start']['value'];
 				echo '</div>';

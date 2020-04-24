@@ -107,7 +107,7 @@ function durationInfo($start,$end){
 
 function wordsFromTitleAsQueryString($str){
 
-	$notwanted = array("museum","kunst","tekeningen");
+	$notwanted = array("museum","kunst","tekeningen","tentoonstelling","kunstenaar");
 	$thebestwords = array();
 	
 	$words = explode(" ", strtolower($str));
