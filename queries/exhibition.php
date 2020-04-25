@@ -15,7 +15,7 @@ PREFIX la: <https://linked.art/ns/terms/>
 PREFIX edm: <http://www.europeana.eu/schemas/edm/>
 PREFIX rijks: <https://id.rijksmuseum.nl/>
 
-SELECT ?exhtitle ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
+SELECT ?exhtitle ?wdtt ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
   VALUES ?tt {rijks:" . $_GET['id'] . "}
   ?tt crm:P7_took_place_at ?place .
   ?tt crm:P1_is_identified_by/crm:P190_has_symbolic_content ?exhtitle .
@@ -38,6 +38,9 @@ SELECT ?exhtitle ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SA
     OPTIONAL{
       ?aggr edm:isShownBy ?img .  
     }
+  }
+  OPTIONAL{
+    ?tt skos:closeMatch ?wdtt .
   }
 } LIMIT 1000";
 

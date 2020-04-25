@@ -10,6 +10,13 @@ include("../queries/exhibition.php");
 include("../queries/rkd.php");
 
 
+$wdimages = array();
+if(isset($exhibition['results']['bindings'][0]['wdtt']['value'])){
+	$wdtt = $exhibition['results']['bindings'][0]['wdtt']['value'];
+	// in: $wdtt out: $wdimages
+	include("../queries/wikidata.php");
+}
+
 
 $exh = $exhibition['results']['bindings'][0];
 $exhtitle = $exh['exhtitle']['value'];
@@ -166,12 +173,75 @@ $crowdsourcelink .= urlencode($exhtitle);
 					echo $institute;
 				echo '</div>';
 
-				if($i%4==0){
+				if($i%6==0){
 					echo '</div>';
 					echo '<div class="row">';
 				}
 			}
-			for($x=0; $x<(4-$i%4); $x++){
+			for($x=0; $x<(6-$i%6); $x++){
+				echo '<div class="col-sm">';
+				echo '</div>';
+			}
+			?>
+		</div>
+
+		<?php } ?>
+
+
+
+		<?php if(count($wdimages['results']['bindings'])){ ?>
+
+		<h2>Op Wikidata gevonden tentoongestelde werken</h2>
+
+		<div class="row">
+
+			<?php
+			$i = 0;
+			$last = "";
+			foreach ($wdimages['results']['bindings'] as $img) {
+
+				if($img['work']['value']==$last){
+					continue;
+				}
+				$last = $img['work']['value'];
+
+				$i++;
+
+				$title = $img['workLabel']['value'];
+				if(strlen($img['workarticle']['value'])){
+					$title = '<a href="' . $img['workarticle']['value'] . '">' . $img['workLabel']['value'] . '</a>';
+				}
+				$imgurl = false;
+				if(isset($img['img']['value'])){
+					$imgurl = $img['img']['value'] . "?width=200px";
+				}
+				$desc = $img['desc']['value'];
+				$artist = $img['makerLabel']['value'];
+				$institute = $img['collectionLabel']['value'];
+				if(strlen($img['article']['value'])){
+					$institute = '<a href="' . $img['article']['value'] . '">' . $img['collectionLabel']['value'] . '</a>';
+				}
+				$permalink = $img['work']['value'];
+
+				
+
+				echo '<div class="col-sm exh-object">';
+					if($imgurl){
+						echo '<a target="_blank" href="' . $permalink . '"><img src="' . $imgurl . '" /></a>';
+					}else{
+						echo '<a class="no-img" target="_blank" href="' . $permalink . '">afbeelding niet beschikbaar</a>';
+					}
+					echo '<em>' . $title . "</em><br />";
+					echo '<strong>' . $artist . "</strong><br />";
+					echo $institute; 
+				echo '</div>';
+
+				if($i%6==0){
+					echo '</div>';
+					echo '<div class="row">';
+				}
+			}
+			for($x=0; $x<(6-$i%6); $x++){
 				echo '<div class="col-sm">';
 				echo '</div>';
 			}
