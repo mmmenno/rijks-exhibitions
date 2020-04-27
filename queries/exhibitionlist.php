@@ -57,9 +57,9 @@ SELECT ?tt ?title ?start ?end ?wdtt
   OPTIONAL{
     ?tt skos:closeMatch ?wdtt .
     FILTER STRSTARTS(STR(?wdtt),'http://www.wikidata.org') .
-      SERVICE <https://query.wikidata.org/sparql> {
-        ?wdobj wdt:P608 ?wdtt .
-      }
+    SERVICE <https://query.wikidata.org/sparql> {
+      ?wdobj wdt:P608 ?wdtt .
+    }
   }
   
 } 

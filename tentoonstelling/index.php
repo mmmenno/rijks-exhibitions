@@ -16,7 +16,7 @@ if(isset($exhibition['results']['bindings'][0]['wdtt']['value'])){
 	// in: $wdtt out: $wdimages
 	include("../queries/wikidata.php");
 }
-
+//print_r($wdimages);
 
 $exh = $exhibition['results']['bindings'][0];
 $exhtitle = $exh['exhtitle']['value'];
@@ -61,15 +61,20 @@ $crowdsourcelink .= urlencode($exhtitle);
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" href="../assets/css/styles.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA==" crossorigin=""></script>
+  	
+  	<link rel="stylesheet" href="../assets/css/styles.css">
 
 	<title>Tentoonstelling Rijksmuseum</title>
 </head>
 <body>
 
-
-
 	<div class="container">
+
+		<div id="topnavbar">
+			<a href="../about.php">over deze applicatie</a>
+		</div>
 
 		<h1><a href="../">Rijksmuseum Tentoonstellingen</a></h1>
 
@@ -140,9 +145,9 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 		<?php if(count($rkdimages['results']['bindings'])){ ?>
 
-		<h2>Bij het RKD gevonden tentoongestelde werken</h2>
+		<h2>Tentoongestelde objecten volgens het RKD</h2>
 
-		<div class="row">
+		<div class="row rkd">
 
 			<?php
 			$i = 0;
@@ -175,7 +180,7 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 				if($i%6==0){
 					echo '</div>';
-					echo '<div class="row">';
+					echo '<div class="row rkd">';
 				}
 			}
 			for($x=0; $x<(6-$i%6); $x++){
@@ -191,12 +196,16 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 		<?php if(count($wdimages['results']['bindings'])){ ?>
 
-		<h2>Op Wikidata gevonden tentoongestelde werken</h2>
+		<h2>Tentoongestelde objecten volgens Wikidata</h2>
 
-		<div class="row">
+		<div class="row wikidata">
+
+			<div class="col-sm-6">
+				<?php include("wikidata-map.php"); ?>
+			</div>
 
 			<?php
-			$i = 0;
+			$i = 3;
 			$last = "";
 			foreach ($wdimages['results']['bindings'] as $img) {
 
@@ -213,7 +222,7 @@ $crowdsourcelink .= urlencode($exhtitle);
 				}
 				$imgurl = false;
 				if(isset($img['img']['value'])){
-					$imgurl = $img['img']['value'] . "?width=200px";
+					$imgurl = $img['img']['value'] . "?width=300px";
 				}
 				$desc = $img['desc']['value'];
 				$artist = $img['makerLabel']['value'];
@@ -238,7 +247,7 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 				if($i%6==0){
 					echo '</div>';
-					echo '<div class="row">';
+					echo '<div class="row wikidata">';
 				}
 			}
 			for($x=0; $x<(6-$i%6); $x++){

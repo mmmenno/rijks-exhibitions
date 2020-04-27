@@ -32,6 +32,10 @@ include("queries/exhibitionlist.php");
 
 	<div class="container">
 
+		<div id="topnavbar">
+			<a href="about.php">over deze applicatie</a>
+		</div>
+
 		<h1>Rijksmuseum Tentoonstellingen</h1>
 
 		<div id="decades">
