@@ -33,7 +33,7 @@ include("queries/exhibitionlist.php");
 	<div class="container">
 
 		<div id="topnavbar">
-			<a href="/">terug naar overzicht</a>
+			<a href="index.php">terug naar overzicht</a>
 		</div>
 
 		<h1>Over deze demo-applicatie</h1>
