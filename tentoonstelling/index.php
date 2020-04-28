@@ -90,6 +90,41 @@ $crowdsourcelink .= urlencode($exhtitle);
 			<div class="duration" style="<?= $durationstyle ?>"></div>
 		</div>
 
+
+
+		<h2>In de media</h2>
+
+		<div class="row">
+			<div class="col-sm">
+				<?php if((int)$duration['startyear']<1996){ ?>
+					<p>
+						<a target="_blank" href="<?= $delpherlink ?>">Zoek zelf in Delpher</a> naar artikelen over deze tentoonstelling. We hebben al wat parameters in de link gestopt, zodat je artikelen binnen de juiste periode vindt waarin gerept wordt over een tentoonstelling, het Rijksmuseum en tenminste één woord uit de titel van de tentoonstelling.
+					</p>
+					<p>
+						Een recensie of artikel gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Meld het ons <a href="<?= $crowdsourcelink ?>">hier</a>. 
+					</p>
+				<?php }else{ ?>
+					<p>
+						Anders dan bij oudere tentoonstellingen hier geen link naar Delpher, aangezien je daar geen kranten van na 1995 treft.
+					</p>
+					<p>
+						Elders een recensie gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Meld het ons <a href="<?= $crowdsourcelink ?>">hier</a>.
+					</p>
+				<?php } ?>
+
+				
+			</div>
+			<div class="col-sm">
+			</div>
+			<div class="col-sm">
+			</div>
+		</div>
+
+
+		<?php if(count($exhibition['results']['bindings'])>1 || isset($exhibition['results']['bindings'][0]['obj']['value'])){ ?>
+
+		<h2>Tentoongestelde collectie-items</h2>
+
 		<div class="row">
 
 			<?php
@@ -140,6 +175,8 @@ $crowdsourcelink .= urlencode($exhtitle);
 			}
 			?>
 		</div>
+
+		<?php } ?>
 
 
 
@@ -194,7 +231,7 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 
 
-		<?php if(count($wdimages['results']['bindings'])){ ?>
+		<?php if(isset($wdimages['results']['bindings'])){ ?>
 
 		<h2>Tentoongestelde objecten volgens Wikidata</h2>
 
@@ -259,35 +296,6 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 		<?php } ?>
 
-
-
-		<h2>In de media</h2>
-
-		<div class="row">
-			<div class="col-sm">
-				<?php if((int)$duration['startyear']<1996){ ?>
-					<p>
-						<a target="_blank" href="<?= $delpherlink ?>">Zoek zelf in Delpher</a> naar artikelen over deze tentoonstelling. We hebben al wat parameters in de link gestopt, zodat je artikelen binnen de juiste periode vindt waarin gerept wordt over een tentoonstelling, het Rijksmuseum en tenminste één woord uit de titel van de tentoonstelling.
-					</p>
-					<p>
-						Een recensie of artikel gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Meld het ons <a href="<?= $crowdsourcelink ?>">hier</a>. 
-					</p>
-				<?php }else{ ?>
-					<p>
-						Anders dan bij oudere tentoonstellingen hier geen link naar Delpher, aangezien je daar geen kranten van na 1995 treft.
-					</p>
-					<p>
-						Elders een recensie gevonden waarvan je denkt dat anderen het ook graag bij deze tentoonstelling zouden lezen? Meld het ons <a href="<?= $crowdsourcelink ?>">hier</a>.
-					</p>
-				<?php } ?>
-
-				
-			</div>
-			<div class="col-sm">
-			</div>
-			<div class="col-sm">
-			</div>
-		</div>
 
 
 	</div>
