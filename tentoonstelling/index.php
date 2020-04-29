@@ -43,6 +43,13 @@ $delpherlink .= '%22)&coll=ddd';
 $crowdsourcelink = "../crowdsourcing/add-article.php?ttid=" . $_GET['id'] . "&title=";
 $crowdsourcelink .= urlencode($exhtitle);
 
+// catalogues
+$catalogues = array();
+foreach ($exhibition['results']['bindings'] as $k => $v) {
+	if(!in_array($v['cat']['value'],$catalogues) && isset($v['cat']['value']) ){
+		$catalogues[] = $v['cat']['value'];
+	}
+}
 
 ?>
 <!doctype html>
@@ -90,6 +97,15 @@ $crowdsourcelink .= urlencode($exhtitle);
 			<div class="duration" style="<?= $durationstyle ?>"></div>
 		</div>
 
+		<?php 
+		foreach ($catalogues as $k => $v) { 
+			$i = "";
+			if($k>0){
+				$i = $k+1;
+			}
+			echo '<a target="_blank" class="catlink" href="'. $v . '">catalogus ' . $i . '</a>';
+		} 
+		?>
 
 
 		<h2>In de media</h2>
@@ -129,11 +145,17 @@ $crowdsourcelink .= urlencode($exhtitle);
 
 			<?php
 			$i = 0;
+			$shownobjects = array();
 			foreach ($exhibition['results']['bindings'] as $img) {
 
 				if(!isset($img['obj']['value'])){
 					continue;
 				}
+
+				if(in_array($img['obj']['value'],$shownobjects)){
+					continue;
+				}
+				$shownobjects[] = $img['obj']['value'];
 
 				$i++;
 

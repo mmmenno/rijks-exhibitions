@@ -142,10 +142,19 @@ include("queries/exhibitionlist.php");
 		<div class="row">
 			<div class="col-sm-7">
 
-				<h2>Recensies in de krant</h2>
+				<h2>In de media</h2>
 
 				<p>
+					Krantenartikelen helpen niet alleen een beeld te krijgen van een tentoonstelling, maar ook van de receptie ervan. Op Delpher is over veel tentoonstellingen wel wat te vinden. Het probleem is eerder dat je te veel resultaten krijgt - zoeken op  Delpher komt vaak neer op veel filteren.
+				</p>
 
+				<p>
+					Het helpt enorm dat we goede dateringen en titels van de tentoonstellingen hebben. In de link naar Delpher kunnen daardoor een aantal parameters meegegeven worden, waarmee veel gerichter gezocht kan worden. De resultaten zijn zo behoorlijk accuraat. Voor nu is gekozen het bij die link te houden en een aantal artikelen handmatig met tentoonstellingen te verbinden, maar geautomatiseerd zoeken is - met zo'n goede tentoonstellingenlijst - zeker een optie.
+				</p>
+
+				<p>
+					
+				</p>
 
 
 				<h2>Catalogi en affiches</h2>

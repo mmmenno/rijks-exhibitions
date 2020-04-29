@@ -27,7 +27,8 @@ SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?rmobj1) AS ?cRmImg) 
     (COUNT( distinct ?rmobj2) AS ?cRmNoImg) 
     (COUNT( distinct ?rkdobj) AS ?cRkdImg)  
-    (COUNT( distinct ?wdobj) AS ?cWdImg) 
+    (COUNT( distinct ?wdobj) AS ?cWdImg)  
+    (COUNT( distinct ?cat) AS ?cCat) 
     WHERE {
   ?tt crm:P2_has_type <http://vocab.getty.edu/aat/300054766> .
   ?tt crm:P7_took_place_at rijks:103332 .
@@ -55,6 +56,9 @@ SELECT ?tt ?title ?start ?end ?wdtt
     FILTER STRSTARTS(STR(?rkdobj),'https://data.rkd')
   }
   OPTIONAL{
+    ?tt crm2:P129i_is_subject_of ?cat .
+  }
+  OPTIONAL{
     ?tt skos:closeMatch ?wdtt .
     FILTER STRSTARTS(STR(?wdtt),'http://www.wikidata.org') .
     SERVICE <https://query.wikidata.org/sparql> {
@@ -65,7 +69,7 @@ SELECT ?tt ?title ?start ?end ?wdtt
 } 
 #GROUP BY ?tt ?title ?start ?end
 ORDER BY ASC(?start)
-LIMIT 2000";
+LIMIT 1000";
 
 
 $endpoint = 'https://api.data.netwerkdigitaalerfgoed.nl/datasets/rijksmuseum/RM-PublicDomainImages/services/RM-PublicDomainImages/sparql';

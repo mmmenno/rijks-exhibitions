@@ -11,11 +11,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX crm: <http://www.cidoc-crm.org/rdfs/cidoc_crm_v6.2.1-2018April.rdfs#>
+PREFIX crm2: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX la: <https://linked.art/ns/terms/>
 PREFIX edm: <http://www.europeana.eu/schemas/edm/>
 PREFIX rijks: <https://id.rijksmuseum.nl/>
 
-SELECT ?exhtitle ?wdtt ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
+SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
   VALUES ?tt {rijks:" . $_GET['id'] . "}
   ?tt crm:P7_took_place_at ?place .
   ?tt crm:P1_is_identified_by/crm:P190_has_symbolic_content ?exhtitle .
@@ -41,6 +42,9 @@ SELECT ?exhtitle ?wdtt ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?i
   }
   OPTIONAL{
     ?tt skos:closeMatch ?wdtt .
+  }
+  OPTIONAL{
+    ?tt crm2:P129i_is_subject_of ?cat .
   }
 } LIMIT 1000";
 
