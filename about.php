@@ -41,7 +41,7 @@ include("queries/exhibitionlist.php");
 		<div class="row">
 			<div class="col-sm-9">
 				<p class="lead">
-					Deze demo-applicatie is in opdracht van en in samenwerking met medewerkers van het Rijksmuseum Amsterdam gemaakt. Ons gezamenlijk doel: het bekijken, verbinden en schonen van tentoonstellingsdata. De demo is een - tijdelijk - hulpmiddel dat onvolkomenheden in en mogelijkheden van de data in beeld brengt. Het punt waarop data 'af' is bereik je nooit, maar we kunnen een eind in de richting komen.
+					Deze demo-applicatie is in opdracht van en in samenwerking met medewerkers van het Rijksmuseum Amsterdam gemaakt. Ons gezamenlijk doel: het bekijken, verbinden en schonen van tentoonstellingsdata. De demo moet dan ook gezien worden als een - tijdelijk - hulpmiddel om onvolkomenheden in en mogelijkheden van de data in beeld te brengen. Het punt waarop data 'af' is bereik je nooit, maar we kunnen zo wel een eind in de richting komen.
 				</p>
 			</div>
 			<div class="col-sm-3">
@@ -69,7 +69,7 @@ include("queries/exhibitionlist.php");
 				<img src="assets/img/overzicht.png" />
 
 				<p class="small">
-					Tentoonstellingenoverzicht in stadium dat nog wat schaafwerk kan gebruiken - met titels als <em>MOP 5</em>, <em>MOP 6</em> en <em>MOP 7</em>, een tentoonstelling waarvan het einde twee jaar voor het begin ligt en maar twee tentoonstellingen waar objecten aan verbonden zijn.
+					Tentoonstellingenoverzicht in stadium dat nog wat schaafwerk kan gebruiken - met titels als <em>MOP 5</em>, <em>MOP 6</em> en <em>MOP 7</em>, een tentoonstelling waarvan het einde twee jaar voor het begin ligt en maar twee tentoonstellingen waar objecten aan verbonden zijn
 				</p>
 			</div>
 		</div>
@@ -145,7 +145,7 @@ include("queries/exhibitionlist.php");
 				<h2>In de media</h2>
 
 				<p>
-					Krantenartikelen helpen niet alleen een beeld te krijgen van een tentoonstelling, maar ook van de receptie ervan. Op Delpher is over veel tentoonstellingen wel wat te vinden. Het probleem is eerder dat je te veel resultaten krijgt - zoeken op  Delpher komt vaak neer op veel filteren.
+					Krantenartikelen helpen niet alleen een beeld te krijgen van een tentoonstelling, maar ook van de receptie ervan. Op <a href="https://www.delpher.nl/">Delpher</a> is over veel tentoonstellingen wel wat te vinden. Het probleem is eerder dat je te veel resultaten krijgt - zoeken op  Delpher komt vaak neer op veel filteren.
 				</p>
 
 				<p>
@@ -153,22 +153,93 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					
+					Op <a href="https://openbeelden.nl/">Openbeelden</a> zijn nog een vijftiental beeldverslagen uit Polygoon- en NSBjournaals gevonden. Er is natuurlijk veel meer bewegend beeld beschikbaar, maar dat lijkt, vooral door auteursrechtelijke kwesties en urls waarvan de persistentie op langere termijn ongewis is, iets minder makkelijk op te nemen. 
 				</p>
 
-
-				<h2>Catalogi en affiches</h2>
-
-				<h2>Foto's en archiefmateriaal</h2>
-
-				<h2>Linked data</h2>
-
-				<h2>Crowdsourcing</h2>
 			</div>
 			<div class="col-sm-1">
 			</div>
 			<div class="col-sm-4">
+				<img src="assets/img/krant.jpg" />
 
+				<p class="small">
+					Krantenartikelen geven een beeld van de tentoonstelling, maar ook van de receptie ervan
+				</p>
+
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="col-sm-7">
+
+				<h2>Catalogi en affiches</h2>
+
+				<p>
+					Wanneer je meer wilt weten over een tentoonstelling is de eerste stap altijd die richting catalogus. Tenzij er exemplaren ontvreemd zijn zouden die allemaal te vinden moeten zijn in de bibliotheek van het museum. Bibliotheekmedewerkers hebben de afgelopen tijd links gelegd tussen een kleine tweehonderd tentoonstellingen en bijbehorende catalogi, zodat je met een klik jezelf een zoekactie kan besparen. Omgekeerd kunnen die links nu natuurlijk ook worden gelegd. De verwachting is dat het aantal tentoonstellingen waarbij één of meerdere catalogi verschenen tussen de drie- en vierhonderd ligt.
+				</p>
+
+				<p>
+					Dat betekent dat tweederde van de tentoonstellingen het zonder catalogus heeft moeten doen. In het overzicht zie je zo meteen goed terug wat de belangrijke tentoonstellingen zijn (of werden geacht).
+				</p>
+
+				<p>
+					Affiches zouden wat dat betreft ook 'een teken aan de wand' zijn. En daarbij natuurlijk een prachtig overzicht kunnen geven van anderhalve eeuw affiche-ontwerp. Niet voor niets waren de affiches begin dit millenium onderwerp van de tentoonstelling <a href="">Kom kijken : affiches van het Rijksmuseum</a>.
+
+				<p>
+					Het zou mooi zijn als er meer affiches online beschikbaar kunnen worden gemaakt. Daarvoor zal nog wel wat scanwerk en vooral ook speurwerk met betrekking tot rechthebbenden moeten worden verricht. Maar dat dat de moeite waard is zullen veel mensen onderschrijven.
+				</p>
+
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-4">
+				<img src="assets/img/HA-0013503.jpg" />
+
+				<p class="small">
+					De foto van deze affiches bevindt zich in ieder geval binnen het publiek domein
+				</p>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-7">
+
+				<h2>Foto's en archiefmateriaal</h2>
+
+				<p>
+					In Rijksstudio is al <a href="https://www.rijksmuseum.nl/nl/zoeken?q=tentoonstelling%20rijksmuseum&f=1&p=10&ps=12&type=foto&imgonly=True&st=Objects&ii=0">een aantal foto's</a> te vinden van tentoonstellingen en in het zogeheten <em>Historisch Archief</em> bevindt zich veel meer beeldmateriaal. Die foto's geven informatie die uit de catalogus niet naar voren komt. Welke werken hingen bij elkaar en hoe werden ze gepresenteerd?
+				</p>
+
+				<p>
+					De foto's zijn nu nog niet te zien in deze demo-applicatie. Dat heeft vooral te maken met het feit dat het collectiesysteem eerst zo aangepast moet worden dat de foto's goed met de tentoonstellingsdata te verbinden zijn en die data vervolgens geëxporteerd moet kunnen worden. Manueel hadden we daar natuurlijk een mouw aan kunnen passen, maar we bewandelen liever de 'koninklijke weg', omdat niet deze demo, maar goed verbonden en toegankelijke data het doel is. Zodat daar in de toekomst allerlei toepassingen op gemaakt kunnen worden, en niet alleen deze ene.
+				</p>
+
+				<p>
+					Archiefmateriaal is van belang voor kunsthistorisch onderzoek. Hoe kwam een tentoonstelling tot stand, welke bruiklenen werden geweigerd, wie drukte zijn of haar stempel op het uiteindelijke resultaat?
+				</p>
+
+				<p>
+					Een groot deel - 'zestig strekkende meters' - van het Rijksmuseumarchief bevindt zich in het <a href="http://noord-hollandsarchief.nl/bronnen/archieven?mivast=236&mizig=210&miadt=236&micode=476&miview=inv2">Noord-Hollands Archief</a>. Bij een aantal tentoonstellingen hebben we links naar archieftoegangen opgenomen. Dat is gedaan als 'proof of concept' waarbij niet naar volledigheid is gestreefd - daarvoor is de persistentie van die links te onzeker. Naar individuele scans kan sowieso niet gelinkt worden.
+				</p>
+
+				<h2>Linked data to the rescue</h2>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-4">
+				<img src="assets/img/HA-0010189.jpg" />
+
+				<p class="small">
+					De Rembrandttentoontstelling van 1969 - foto's als deze tonen niet alleen welke werken naast elkaar hingen, maar ook inrichtingselementen als deze opvallende verhoging in het midden van de zaal
+				</p>
+				<img src="assets/img/archief.jpg" />
+
+				<p class="small">
+					Een lijst met werken voor de Rembrandttentoonstelling van 1932, met doorgehaald maar nog wel leesbaar de werken die blijkbaar niet geleend konden worden
+				</p>
 
 			</div>
 		</div>
