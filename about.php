@@ -36,12 +36,12 @@ include("queries/exhibitionlist.php");
 			<a href="index.php">terug naar overzicht</a>
 		</div>
 
-		<h1>Over deze demo-applicatie</h1>
+		<h1><a href="index.php">Rijksmuseum Tentoonstellingen</a></h1>
 
 		<div class="row">
 			<div class="col-sm-9">
 				<p class="lead">
-					Deze demo-applicatie is in opdracht van en in samenwerking met medewerkers van het Rijksmuseum Amsterdam gemaakt. Ons gezamenlijk doel: het bekijken, verbinden en schonen van tentoonstellingsdata. De demo moet dan ook gezien worden als een - tijdelijk - hulpmiddel om onvolkomenheden in en mogelijkheden van de data in beeld te brengen. Het punt waarop data 'af' is bereik je nooit, maar we kunnen zo wel een eind in de richting komen.
+					Deze applicatie is in opdracht van en in samenwerking met medewerkers van het Rijksmuseum Amsterdam gemaakt. Ons gezamenlijk doel: het bekijken, verbinden en schonen van tentoonstellingsdata. Deze demo moet dan ook gezien worden als een - tijdelijk - hulpmiddel om onvolkomenheden in en mogelijkheden van de data in beeld te brengen. Het punt waarop data 'af' is bereik je nooit, maar we kunnen zo wel weer een eind in de richting komen.
 				</p>
 			</div>
 			<div class="col-sm-3">
@@ -56,11 +56,11 @@ include("queries/exhibitionlist.php");
 					Enkele honderden tentoonstellingen waren voor aanvang van het project al opgenomen in het collectieregistratiesysteem Adlib. Daarnaast circuleerden intern nog enkele lijsten waarop (veel) meer tentoonstellingen genoemd werden. Daarop voorkomende tentoonstellingen die nog niet in Adlib bekend waren, zijn toegevoegd.
 				</p>
 				<p>
-					Eenmaal in Adlib kunnen er objecten uit de collectie aan een tentoonstelling gekoppeld worden. De demo is gemaakt op data die weer uit Adlib geëxporteerd is. In de overzichten kon ik zo de aantallen gekoppelde objecten tonen, in een rood bolletje. En op de tentoonstellingspagina worden de objecten zelf getoond.
+					Eenmaal in Adlib kunnen er objecten uit de collectie aan een tentoonstelling gekoppeld worden. De demo is gemaakt op data die weer uit Adlib geëxporteerd is. In de overzichten kon ik zo de aantallen gekoppelde objecten tonen (het rode bolletje). En op de tentoonstellingspagina worden de objecten zelf getoond.
 				</p>
 
 				<p>
-					Zo kan je objecten bekijken binnen de context van een tentoonstelling, of die nu afgelopen jaar of decennia geleden heeft gelopen. Ja, met de catalogus kon dat al, maar je hebt ze thuis waarschijnlijk niet allemaal in de kast staan. De bibliotheek is nog aan het tellen - het zijn er waarschijnlijk zo'n vierhonderd. En dan zijn er nog de honderden tentoonstellingen waar geen catalogus bij is verschenen.
+					Zo kan je objecten bekijken binnen de context van een tentoonstelling, of die nu afgelopen jaar of decennia geleden heeft plaatsgevonden. Met de catalogus kon dat natuurlijk al, maar je hebt ze thuis waarschijnlijk niet allemaal in de kast staan. De bibliotheek is nog aan het tellen - het zijn er waarschijnlijk zo'n vierhonderd. En dan zijn er nog de honderden tentoonstellingen waar geen catalogus bij is verschenen.
 				</p>
 			</div>
 			<div class="col-sm-1">
@@ -78,7 +78,7 @@ include("queries/exhibitionlist.php");
 				<h2>Tentoongestelde objecten uit andere collecties</h2>
 
 				<p>
-					Nu kan je objecten uit je eigen collectie netjes met tentoonstellingen verbinden, met objecten uit andere collecties is dat een stuk lastiger. Zeker als je ook afbeeldingen en beschrijvingen wilt tonen zou dat een hels karwei zijn.
+					Nu kan je objecten uit je eigen collectie zo netjes met tentoonstellingen verbinden, met objecten uit andere collecties is dat een stuk lastiger. Zeker als je ook afbeeldingen en beschrijvingen wilt tonen zou dat een hels karwei zijn.
 				</p>
 
 				<p>
@@ -90,7 +90,7 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					 Zo ver is het echter nog niet, hoewel het Amsterdam Museum op dit gebied behoorlijk voorop loopt. En dan is er nog het simpele feit dat op Rijksmuseum tentoonstellingen objecten te zien zijn geweest van honderden instellingen. Voor elk van die instellingen uitzoeken of data online beschikbaar is, en op welke manier, daar kan je wel een fte mee vullen. Het zou handiger zijn als dit op de één of andere manier meer centraal geregeld zou zijn. 
+					Al loopt het Amsterdam Museum op dit gebied behoorlijk voorop, zo ver is het nog niet. En dan is er nog het simpele feit dat op Rijksmuseum tentoonstellingen objecten te zien zijn geweest van honderden instellingen. Voor elk van die instellingen uitzoeken of data online beschikbaar is, en op welke manier, daar kan je wel een fte mee vullen. Het zou handiger zijn als dit op de één of andere manier meer centraal geregeld zou zijn. 
 				</p>
 
 				<p>
@@ -98,11 +98,11 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					De andere kandidaat is Wikidata, waar ook al veel data beschikbaar is en dat bovendien veel toegankelijker is, onder andere via een SPARQL endpoint. De aantallen objecten die op Wikidata aan een tentoonstelling gekoppeld zijn kunnen daardoor via een 'federated query' opgehaald worden, zodat, in de groene bolletjes, altijd de laatste stand van zaken te zien is.
+					De andere kandidaat is Wikidata, waar ook al veel data beschikbaar is en dat bovendien veel toegankelijker is, onder andere via een SPARQL endpoint. De aantallen objecten die op Wikidata aan een tentoonstelling gekoppeld zijn kunnen daardoor via een 'federated query' opgehaald worden, zodat, in groene bolletjes dit keer, altijd de laatste stand van zaken te zien is.
 				</p>
 
 				<p>
-					Er zijn verschillen. Wikidata wordt bijgehouden door 'vrijwilligers', de RKD data heeft meer 'autoriteit'. Op Wikidata zijn veel schilderijen present, vooral door het project The Sum of All Paintings zijn hele collecties in één klap online gezet. Tekeningen en werken in particuliere collecties zijn weer beter vertegenwoordigd in RKDimages. Zodra we het domein van de toegepaste kunst en historische objecten (meubels, kleding, gebruiksvoorwerpen) betreden is het overigens bij beiden meestal vergeefs zoeken.
+					Er zijn verschillen. Wikidata wordt bijgehouden door 'vrijwilligers', de RKD data heeft meer 'autoriteit'. Op Wikidata zijn veel schilderijen present, vooral door het project <a href="https://www.wikidata.org/wiki/Wikidata:WikiProject_sum_of_all_paintings">The Sum of All Paintings</a> zijn hele collecties in één klap beschikbaar gekomen. Tekeningen en werken in particuliere collecties zijn weer beter vertegenwoordigd in RKDimages. Zodra we het domein van de toegepaste kunst en historische objecten (meubels, kleding, gebruiksvoorwerpen) betreden is het overigens bij beiden meestal vergeefs zoeken.
 				</p>
 
 				<p>
@@ -225,7 +225,35 @@ include("queries/exhibitionlist.php");
 					Een groot deel - 'zestig strekkende meters' - van het Rijksmuseumarchief bevindt zich in het <a href="http://noord-hollandsarchief.nl/bronnen/archieven?mivast=236&mizig=210&miadt=236&micode=476&miview=inv2">Noord-Hollands Archief</a>. Bij een aantal tentoonstellingen hebben we links naar archieftoegangen opgenomen. Dat is gedaan als 'proof of concept' waarbij niet naar volledigheid is gestreefd - daarvoor is de persistentie van die links te onzeker. Naar individuele scans kan sowieso niet gelinkt worden.
 				</p>
 
-				<h2>Linked data to the rescue</h2>
+				<h2>Linked data</h2>
+
+				<p>
+					Als dit project iets heeft duidelijk gemaakt, dan is het dat iets ogenschijnlijk simpels als een tentoonstellingenoverzicht afhankelijk is van allerlei verschillende databronnen. Die databronnen kunnen binnen de eigen organisatie leven - bibliotheek en collectie worden bijgehouden in verschillende systemen -, maar ook in de wereld daarbuiten. RKD, Wikidata en het Noord-Hollands Archief zijn langsgekomen, maar het Stadsarchief Amsterdam heeft bijvoorbeeld ook materiaal over Rijksmuseumtentoonstellingen in haar collectie, en zelfs in het Stadsarchief Rotterdam ben ik wel eens wat tegengekomen.
+				</p> 
+
+				<p>
+					Dat allemaal bijeen brengen kan eigenlijk alleen met linked data, en om dat te maken zijn vooraleerst goede identifiers nodig. Wat dat betreft heeft het Rijksmuseum nu een belangrijke stap gezet - elke tentoonstelling heeft zo'n identifier gekregen. De eigen bibliotheek, maar ook andere instellingen kunnen daar nu naar verwijzen.
+				</p>
+
+				<p>
+					Om de data verder te verbinden maken we voor elke tentoonstelling binnenkort een Wikidata item aan, vanwaar weer wordt verwezen naar de Rijksmuseum identifier. Zo'n Wikidata item kan, zoals we gezien hebben, weer verbonden worden met tentoongestelde werken. Je kunt het ook gebruiken om zaken te beschrijven die niet in je eigen systeem passen - stel je wilt het 'hoofdonderwerp' van een tentoonstelling ergens kwijt en je hebt daar in je eigen systeem geen veld voor. Bijkomend voordeel van Wikidata is dat steeds meer instellingen het als een soort thesaurus gaan gebruiken.
+				</p>
+
+				<p>
+					In zo'n groeiend web van verbonden data werk je niet meer alleen, maar laat je samen met collega-instellingen steeds meer puzzelstukjes op hun plaats vallen. Daar komt de hulp van Wikidatianen nog bij - Wikidata is ook gewoon een gratis crowdsourceplatform.
+				</p>
+
+				<p>
+					Of het nu datanerds of familieleden zijn, alle mensen die ik het heb laten zien vinden het leuk om door dit in anderhalve maand gerealiseerde tentoonstellingsverleden te dwalen. Ik ben enorm benieuwd hoe zo'n overzicht er over een paar jaar uit ziet.
+				</p>
+
+				<p>
+					Menno den Engelse<br />
+					Mei 2020
+					
+				</p>
+
+
 			</div>
 			<div class="col-sm-1">
 			</div>
@@ -235,10 +263,19 @@ include("queries/exhibitionlist.php");
 				<p class="small">
 					De Rembrandttentoontstelling van 1969 - foto's als deze tonen niet alleen welke werken naast elkaar hingen, maar ook inrichtingselementen als deze opvallende verhoging in het midden van de zaal
 				</p>
+
+
 				<img src="assets/img/archief.jpg" />
 
 				<p class="small">
 					Een lijst met werken voor de Rembrandttentoonstelling van 1932, met doorgehaald maar nog wel leesbaar de werken die blijkbaar niet geleend konden worden
+				</p>
+
+
+				<img src="assets/img/NL-RtSA_4006_IA-1941-0048-01.jpg" />
+
+				<p class="small">
+					Affiche in de collectie van het Stadsarchief Rotterdam - binnenkort gekoppeld aan een tentoonstellingsidentifier?
 				</p>
 
 			</div>
