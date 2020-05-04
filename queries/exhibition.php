@@ -12,11 +12,14 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX crm: <http://www.cidoc-crm.org/rdfs/cidoc_crm_v6.2.1-2018April.rdfs#>
 PREFIX crm2: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX schema: <http://schema.org/>
 PREFIX la: <https://linked.art/ns/terms/>
 PREFIX edm: <http://www.europeana.eu/schemas/edm/>
 PREFIX rijks: <https://id.rijksmuseum.nl/>
 
-SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
+SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink 
+        ?review ?reviewheadline ?reviewpaper ?reviewdate 
+        (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
   VALUES ?tt {rijks:" . $_GET['id'] . "}
   ?tt crm:P7_took_place_at ?place .
   ?tt crm:P1_is_identified_by/crm:P190_has_symbolic_content ?exhtitle .
@@ -45,6 +48,12 @@ SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink (SAMPLE(?title) AS ?titl
   }
   OPTIONAL{
     ?tt crm2:P129i_is_subject_of ?cat .
+  }
+  OPTIONAL{
+    ?review schema:itemReviewed ?tt .
+    ?review schema:headline ?reviewheadline .
+    ?review schema:publisher ?reviewpaper .
+    ?review schema:datePublished ?reviewdate .
   }
 } LIMIT 1000";
 

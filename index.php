@@ -76,6 +76,7 @@ include("queries/exhibitionlist.php");
 				$rkdworks = $exh['cRkdImg']['value'];
 				$wdworks = $exh['cWdImg']['value'];
 				$cats = $exh['cCat']['value'];
+				$reviews = $exh['cReview']['value'];
 
 				$duration = durationInfo($exh['start'],$exh['end']);
 				if($duration['days']){
@@ -108,6 +109,9 @@ include("queries/exhibitionlist.php");
 					}
 					if($cats){
 						echo '<div class="worksicon rm-cats">' . $cats . '</div>';
+					}
+					if($reviews){
+						echo '<div class="worksicon reviews">' . $reviews . '</div>';
 					}
 					//echo $exh['start']['value'];
 				echo '</div>';

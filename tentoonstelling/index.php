@@ -51,6 +51,21 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 	}
 }
 
+// reviews
+$reviews = array();
+$reviewids = array();
+foreach ($exhibition['results']['bindings'] as $k => $v) {
+	if(!in_array($v['review']['value'],$reviewids) && isset($v['review']['value']) ){
+		$reviews[] = array(
+			"review" => $v['review']['value'],
+			"reviewheadline" => $v['reviewheadline']['value'],
+			"reviewpaper" => $v['reviewpaper']['value'],
+			"reviewdate" => $v['reviewdate']['value'],
+		);
+		$reviewids [] = $v['review']['value'];
+	}
+}
+
 ?>
 <!doctype html>
 <html lang="nl">
@@ -131,6 +146,12 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 				
 			</div>
 			<div class="col-sm">
+				<?php 
+				foreach ($reviews as $k => $v) { 
+					echo '<h4><a target="_blank" class="reviewlink" href="'. $v['review'] . '">' . $v['reviewheadline'] . '</a></h4>';
+					echo '<p class="small">' . $v['reviewpaper'] . ', ' . date("j-n-Y",strtotime($v['reviewdate'])) . '</p>';
+				} 
+				?>
 			</div>
 			<div class="col-sm">
 			</div>

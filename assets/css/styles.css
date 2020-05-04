@@ -32,6 +32,11 @@ h3{
 	padding-top: 6px;
 	font-size: 15px;
 }
+h4{
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 16px;
+}
 .lead{
 	margin-top: 28px;
 }
@@ -65,7 +70,10 @@ a{
 	color: #D55140;
 }
 a:visited{
-	color: #8B8B8B;
+	color: #FD5E49;
+}
+h3 a:visited{
+	color: #7B7B7B;
 }
 a:hover{
 	text-decoration: none;

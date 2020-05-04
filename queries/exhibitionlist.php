@@ -19,6 +19,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX crm: <http://www.cidoc-crm.org/rdfs/cidoc_crm_v6.2.1-2018April.rdfs#>
 PREFIX crm2: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX la: <https://linked.art/ns/terms/>
+PREFIX schema: <http://schema.org/>
 PREFIX edm: <http://www.europeana.eu/schemas/edm/>
 PREFIX rijks: <https://id.rijksmuseum.nl/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -28,7 +29,8 @@ SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?rmobj2) AS ?cRmNoImg) 
     (COUNT( distinct ?rkdobj) AS ?cRkdImg)  
     (COUNT( distinct ?wdobj) AS ?cWdImg)  
-    (COUNT( distinct ?cat) AS ?cCat) 
+    (COUNT( distinct ?cat) AS ?cCat)   
+    (COUNT( distinct ?review) AS ?cReview) 
     WHERE {
   ?tt crm:P2_has_type <http://vocab.getty.edu/aat/300054766> .
   ?tt crm:P7_took_place_at rijks:103332 .
@@ -57,6 +59,9 @@ SELECT ?tt ?title ?start ?end ?wdtt
   }
   OPTIONAL{
     ?tt crm2:P129i_is_subject_of ?cat .
+  }
+  OPTIONAL{
+    ?review schema:itemReviewed ?tt .
   }
   OPTIONAL{
     ?tt skos:closeMatch ?wdtt .

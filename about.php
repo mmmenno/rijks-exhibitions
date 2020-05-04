@@ -39,13 +39,19 @@ include("queries/exhibitionlist.php");
 		<h1><a href="index.php">Rijksmuseum Tentoonstellingen</a></h1>
 
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-8">
 				<p class="lead">
 					Deze applicatie is in opdracht van en in samenwerking met medewerkers van het Rijksmuseum Amsterdam gemaakt. Ons gezamenlijk doel: het bekijken, verbinden en schonen van tentoonstellingsdata. Deze demo moet dan ook gezien worden als een - tijdelijk - hulpmiddel om onvolkomenheden in en mogelijkheden van de data in beeld te brengen. Het punt waarop data 'af' is bereik je nooit, maar we kunnen zo wel weer een eind in de richting komen.
 				</p>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
+				<p class="small" style="margin-top: 28px;">
+					De voor deze applicatie gebruikte tentoonstellingsdata is voorlopig (!) te vinden op de <a href="https://data.netwerkdigitaalerfgoed.nl/Rijksmuseum">SPARQLendpoint</a> van Netwerk Digitaal Erfgoed (thanks, NDE!). De collectiedata was daar al ontsloten vanwege de vorig jaar gehouden Hackalod, dus - linked data, hè - dat sloot meteen mooi op elkaar aan.
+				</p>
 
+				<p class="small">
+					De data kan, zowel inhoudelijk als wat modellering betreft, nog gewijzigd worden. Ergo, jullie kunnen erbij, maar garanties op de houdbaarheid worden nog niet gegeven.
+				</p>
 			</div>
 		</div>
 
@@ -185,7 +191,7 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					Affiches zouden wat dat betreft ook 'een teken aan de wand' zijn. En daarbij natuurlijk een prachtig overzicht kunnen geven van anderhalve eeuw affiche-ontwerp. Niet voor niets waren de affiches begin dit millenium onderwerp van de tentoonstelling <a href="">Kom kijken : affiches van het Rijksmuseum</a>.
+					Affiches zouden wat dat betreft ook 'een teken aan de wand' zijn. En daarbij natuurlijk een prachtig overzicht kunnen geven van anderhalve eeuw affiche-ontwerp. Niet voor niets waren de affiches begin dit millenium onderwerp van de tentoonstelling <a href="tentoonstelling/?id=1052608">Kom kijken : affiches van het Rijksmuseum</a>.
 
 				<p>
 					Het zou mooi zijn als er meer affiches online beschikbaar kunnen worden gemaakt. Daarvoor zal nog wel wat scanwerk en vooral ook speurwerk met betrekking tot rechthebbenden moeten worden verricht. Maar dat dat de moeite waard is zullen veel mensen onderschrijven.
