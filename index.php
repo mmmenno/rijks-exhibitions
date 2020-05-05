@@ -55,10 +55,10 @@ include("queries/exhibitionlist.php");
 				<div class="worksicon rm-works">3</div>= RM objecten
 				<div class="worksicon rm-works-noimg">3</div>= RM objecten zonder afb
 				<div class="worksicon rkd-works">3</div>= RKDimages
-				<div class="worksicon wd-works">3</div>= Wikidata images
+				<div class="worksicon wd-works">3</div>= Wikidata afbeeldingen
 				<div class="worksicon reviews">3</div>= krantenartikelen
 				<div class="worksicon rm-cats">1</div>= catalogi
-				<div class="duration" style="width: 45px; display: inline-block;"></div> = lengte tentoonstelling
+				<div class="duration" style="width: 45px; display: inline-block;"></div> = duur tentoonstelling
 			</div>
 		</div>
 
