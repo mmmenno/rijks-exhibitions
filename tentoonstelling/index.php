@@ -66,6 +66,21 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 	}
 }
 
+// newsreels
+$newsreels = array();
+$newsreelids = array();
+foreach ($exhibition['results']['bindings'] as $k => $v) {
+	if(!in_array($v['newsreel']['value'],$newsreelids) && isset($v['newsreel']['value']) ){
+		$newsreels[] = array(
+			"newsreel" => $v['newsreel']['value'],
+			"newsreeltitle" => $v['newsreeltitle']['value'],
+			"newsreelmakerlabel" => $v['newsreelmakerlabel']['value'],
+			"newsreelfile" => $v['newsreelfile']['value'],
+		);
+		$newsreelids [] = $v['newsreel']['value'];
+	}
+}
+
 ?>
 <!doctype html>
 <html lang="nl">
@@ -154,6 +169,21 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 				?>
 			</div>
 			<div class="col-sm">
+				<?php 
+				//print_r($newsreels);
+				foreach ($newsreels as $k => $v) { 
+					echo '<div xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="oip_media" about="' . $v['newsreel'] . '">';
+					echo '<div class="padding">';
+					echo '</div>';
+					echo '<video width="100%" controls="controls">';
+					echo '<source type="video/mp4" src="' . $v['newsreelfile'] . '"/>';
+					echo '</video>';
+					echo '</div>';
+
+					echo '<h4><a target="_blank" class="reviewlink" href="'. $v['newsreel'] . '">' . $v['newsreeltitle'] . '</a></h4>';
+					echo '<p class="small">' . $v['newsreelmakerlabel'] . '</p>';
+				} 
+				?>
 			</div>
 		</div>
 

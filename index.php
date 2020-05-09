@@ -58,6 +58,7 @@ include("queries/exhibitionlist.php");
 				<div class="worksicon wd-works">3</div>= Wikidata afbeeldingen
 				<div class="worksicon reviews">3</div>= krantenartikelen
 				<div class="worksicon rm-cats">1</div>= catalogi
+				<div class="worksicon openbeelden">1</div>= openbeelden
 				<div class="duration" style="width: 45px; display: inline-block;"></div> = duur tentoonstelling
 			</div>
 		</div>
@@ -77,6 +78,7 @@ include("queries/exhibitionlist.php");
 				$wdworks = $exh['cWdImg']['value'];
 				$cats = $exh['cCat']['value'];
 				$reviews = $exh['cReview']['value'];
+				$openbeelden = $exh['cNewsreel']['value'];
 
 				$duration = durationInfo($exh['start'],$exh['end']);
 				if($duration['days']){
@@ -112,6 +114,9 @@ include("queries/exhibitionlist.php");
 					}
 					if($reviews){
 						echo '<div class="worksicon reviews">' . $reviews . '</div>';
+					}
+					if($openbeelden){
+						echo '<div class="worksicon openbeelden">' . $openbeelden . '</div>';
 					}
 					//echo $exh['start']['value'];
 				echo '</div>';

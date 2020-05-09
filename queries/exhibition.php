@@ -19,6 +19,7 @@ PREFIX rijks: <https://id.rijksmuseum.nl/>
 
 SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink 
         ?review ?reviewheadline ?reviewpaper ?reviewdate 
+        ?newsreel ?newsreelmakerlabel ?newsreeltitle ?newsreelfile
         (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
   VALUES ?tt {rijks:" . $_GET['id'] . "}
   ?tt crm:P7_took_place_at ?place .
@@ -55,6 +56,13 @@ SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink
     ?review schema:publisher ?reviewpaper .
     ?review schema:datePublished ?reviewdate .
   }
+  OPTIONAL{
+    ?newsreel crm2:P65_shows_visual_item/crm2:P129_is_about ?tt .
+    ?newsreel crm2:P1_is_identified_by/crm2:P190_has_symbolic_content ?newsreeltitle .
+    ?newsreel crm2:P65_shows_visual_item/crm2:P65i_is_shown_by ?newsreelfile .
+    ?newsreel crm2:P94i_was_created_by/crm2:P14_carried_out_by ?newsreelmaker .
+    ?newsreelmaker rdfs:label ?newsreelmakerlabel .
+  }
 } LIMIT 1000";
 
 
@@ -65,6 +73,6 @@ $response = getSparqlResults($endpoint,$sparql);
 $exhibition = json_decode($response,true);
 
 
-
+//print_r($exhibition);
 
 ?>

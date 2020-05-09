@@ -31,6 +31,7 @@ SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?wdobj) AS ?cWdImg)  
     (COUNT( distinct ?cat) AS ?cCat)   
     (COUNT( distinct ?review) AS ?cReview) 
+    (COUNT( distinct ?newsreel) AS ?cNewsreel) 
     WHERE {
   ?tt crm:P2_has_type <http://vocab.getty.edu/aat/300054766> .
   ?tt crm:P7_took_place_at rijks:103332 .
@@ -64,6 +65,9 @@ SELECT ?tt ?title ?start ?end ?wdtt
     ?review schema:itemReviewed ?tt .
   }
   OPTIONAL{
+    ?newsreel crm2:P65_shows_visual_item/crm2:P129_is_about ?tt .
+  }
+  OPTIONAL{
     ?tt skos:closeMatch ?wdtt .
     FILTER STRSTARTS(STR(?wdtt),'http://www.wikidata.org') .
     SERVICE <https://query.wikidata.org/sparql> {
@@ -74,7 +78,7 @@ SELECT ?tt ?title ?start ?end ?wdtt
 } 
 #GROUP BY ?tt ?title ?start ?end
 ORDER BY ASC(?start)
-LIMIT 1000";
+LIMIT 1500";
 
 
 $endpoint = 'https://api.data.netwerkdigitaalerfgoed.nl/datasets/rijksmuseum/RM-PublicDomainImages/services/RM-PublicDomainImages/sparql';
@@ -84,6 +88,6 @@ $response = getSparqlResults($endpoint,$sparql);
 $exhibitions = json_decode($response,true);
 
 
-
+//print_r($exhibitions);
 
 ?>
