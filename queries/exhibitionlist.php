@@ -16,7 +16,7 @@ $sparql = "
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX crm: <http://www.cidoc-crm.org/rdfs/cidoc_crm_v6.2.1-2018April.rdfs#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crm2: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX la: <https://linked.art/ns/terms/>
 PREFIX schema: <http://schema.org/>
@@ -46,17 +46,19 @@ SELECT ?tt ?title ?start ?end ?wdtt
     ?tt crm:P16_used_specific_object ?rmobj1 .
     ?aggr1 edm:aggregatedCHO ?rmobj1 .
     ?aggr1 edm:isShownBy ?img .
-    FILTER STRSTARTS(STR(?rmobj1),'http://hdl.handle')
+    ?aggr1 edm:dataProvider \"Rijksmuseum\" .
   }
   OPTIONAL{
     ?tt crm:P16_used_specific_object ?rmobj2 .
     ?aggr2 edm:aggregatedCHO ?rmobj2 .
     FILTER NOT EXISTS{?aggr2 edm:isShownBy ?img}
-    FILTER STRSTARTS(STR(?rmobj2),'http://hdl.handle')
+    ?aggr2 edm:dataProvider \"Rijksmuseum\" .
   }
   OPTIONAL{
-    ?tt crm2:P16_used_specific_object ?rkdobj .
-    FILTER STRSTARTS(STR(?rkdobj),'https://data.rkd')
+    ?tt crm:P16_used_specific_object ?rkdobj .
+    ?aggr3 edm:aggregatedCHO ?rkdobj .
+    ?aggr3 edm:isShownBy ?img .
+    ?aggr3 edm:dataProvider \"RKD\" .
   }
   OPTIONAL{
     ?tt crm2:P129i_is_subject_of ?cat .
