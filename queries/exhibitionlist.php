@@ -27,7 +27,6 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?rmobj1) AS ?cRmImg) 
     (COUNT( distinct ?rmobj2) AS ?cRmNoImg) 
-    (COUNT( distinct ?rkdobj) AS ?cRkdImg)  
     (COUNT( distinct ?wdobj) AS ?cWdImg)  
     (COUNT( distinct ?cat) AS ?cCat)   
     (COUNT( distinct ?review) AS ?cReview) 
@@ -53,12 +52,6 @@ SELECT ?tt ?title ?start ?end ?wdtt
     ?aggr2 edm:aggregatedCHO ?rmobj2 .
     FILTER NOT EXISTS{?aggr2 edm:isShownBy ?img}
     ?aggr2 edm:dataProvider \"Rijksmuseum\" .
-  }
-  OPTIONAL{
-    ?tt crm:P16_used_specific_object ?rkdobj .
-    ?aggr3 edm:aggregatedCHO ?rkdobj .
-    ?aggr3 edm:isShownBy ?img .
-    ?aggr3 edm:dataProvider \"RKD\" .
   }
   OPTIONAL{
     ?tt crm2:P129i_is_subject_of ?cat .
