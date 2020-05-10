@@ -4,9 +4,17 @@ include("functions.php");
 
 // in: $_GET['startyear'] out: $exhibitions
 include("queries/exhibitionlist.php");
-
-
 //print_r($exhibitions);
+
+// out: $rkdcount
+include("queries/rkdcount.php");
+
+$rkdworks = array();
+foreach ($rkdcount['results']['bindings'] as $count) {
+	$rkdworks[$count['tt']['value']] = $count['cImg']['value'];
+}
+//print_r($rkdworks);
+
 
 
 
@@ -74,7 +82,6 @@ include("queries/exhibitionlist.php");
 				$ttid = str_replace("https://id.rijksmuseum.nl/", "", $exh['tt']['value']);
 				$rmworks = $exh['cRmImg']['value'];
 				$rmworkswithoutimgs = $exh['cRmNoImg']['value'];
-				$rkdworks = $exh['cRkdImg']['value'];
 				$wdworks = $exh['cWdImg']['value'];
 				$cats = $exh['cCat']['value'];
 				$reviews = $exh['cReview']['value'];
@@ -103,8 +110,8 @@ include("queries/exhibitionlist.php");
 					if($rmworkswithoutimgs){
 						echo '<div class="worksicon rm-works-noimg">' . $rmworkswithoutimgs . '</div>';
 					}
-					if($rkdworks){
-						echo '<div class="worksicon rkd-works">' . $rkdworks . '</div>';
+					if(isset($rkdworks[$exh['tt']['value']])){
+						echo '<div class="worksicon rkd-works">' . $rkdworks[$exh['tt']['value']] . '</div>';
 					}
 					if($wdworks){
 						echo '<div class="worksicon wd-works">' . $wdworks . '</div>';
