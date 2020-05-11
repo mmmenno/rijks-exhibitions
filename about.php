@@ -61,6 +61,11 @@ include("queries/exhibitionlist.php");
 				<p>
 					Enkele honderden tentoonstellingen waren voor aanvang van het project al opgenomen in het collectieregistratiesysteem Adlib. Daarnaast circuleerden intern nog enkele lijsten waarop (veel) meer tentoonstellingen genoemd werden. Daarop voorkomende tentoonstellingen die nog niet in Adlib bekend waren, zijn toegevoegd.
 				</p>
+
+				<p>
+					Omdat de tentoonstellingslijsten tot nu toe eigenlijk alleen voor interne referentie bedoeld waren, zijn en worden de lijsten nagelopen om alles publicabel te krijgen. Titels als <em>MOP 5 - Tulpen</em> worden gewijzigd in <em>Meesterwerken op Papier - Tulpen in Amsterdam</em>, dateringen worden gecheckt en hier en daar wordt een vinkje in het recent aangemaakte veld 'niet publiceren' gezet om 'puur administratieve' tentoonstellingen uit de lijst te verwijderen. Deze klus is niet op een achternamiddag te doen en het zal nog wel even duren vooraleer perfectie bereikt is.
+				</p>
+
 				<p>
 					Eenmaal in Adlib kunnen er objecten uit de collectie aan een tentoonstelling gekoppeld worden. De demo is gemaakt op data die weer uit Adlib geëxporteerd is. In de overzichten kon ik zo de aantallen gekoppelde objecten tonen (het rode bolletje). En op de tentoonstellingspagina worden de objecten zelf getoond.
 				</p>
@@ -151,7 +156,11 @@ include("queries/exhibitionlist.php");
 				<h2>In de media</h2>
 
 				<p>
-					Krantenartikelen helpen niet alleen een beeld te krijgen van een tentoonstelling, maar ook van de receptie ervan. Op <a href="https://www.delpher.nl/">Delpher</a> is over veel tentoonstellingen wel wat te vinden. Het probleem is eerder dat je te veel resultaten krijgt - zoeken op  Delpher komt vaak neer op veel filteren.
+					Krantenartikelen helpen niet alleen een beeld te krijgen van een tentoonstelling, maar ook van de receptie ervan. In de artikelen komst soms ook de ontstaansgeschiedenis aan bod - opmerkelijk is bijvoorbeeld de door een motie van de VVD afgedwongen 'toeristentrekker' <a href="https://hicsuntleones.nl/tentoonstellingen-rijks/tentoonstelling/?id=1052519">Velazquez en zijn tijd</a>, die door de Telegraaf als 'gemiste kans' wordt omschreven. 
+				</p>
+
+				<p>
+					Op <a href="https://www.delpher.nl/">Delpher</a> is over veel tentoonstellingen wel wat te vinden. Het probleem is eerder dat je te veel resultaten krijgt - zoeken op  Delpher komt vaak neer op veel filteren.
 				</p>
 
 				<p>
@@ -159,7 +168,7 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					Op <a href="https://openbeelden.nl/">Openbeelden</a> zijn nog een vijftiental beeldverslagen uit Polygoon- en NSBjournaals gevonden. Er is natuurlijk veel meer bewegend beeld beschikbaar, maar dat lijkt, vooral door auteursrechtelijke kwesties en urls waarvan de persistentie op langere termijn ongewis is, iets minder makkelijk op te nemen. 
+					Op <a href="https://openbeelden.nl/">Openbeelden</a> zijn nog een vijftiental beeldverslagen uit Polygoon- en NSBjournaals gevonden. Er is natuurlijk meer bewegend beeld beschikbaar, maar dat lijkt, door auteursrechtelijke kwesties en urls waarvan de persistentie op langere termijn ongewis is, iets minder makkelijk op te nemen. 
 				</p>
 
 			</div>
@@ -246,11 +255,11 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					In zo'n groeiend web van verbonden data werk je niet meer alleen, maar laat je samen met collega-instellingen steeds meer puzzelstukjes op hun plaats vallen. Daar komt de hulp van Wikidatianen nog bij - Wikidata is ook gewoon een gratis crowdsourceplatform.
+					In zo'n groeiend web van verbonden data werk je niet meer alleen, maar laat je samen met collega-instellingen steeds meer puzzelstukjes op hun plaats vallen. Daar komt de hulp van Wikidatianen nog bij (Wikidata is ook gewoon een crowdsourceplatform).
 				</p>
 
 				<p>
-					Of het nu datanerds of familieleden zijn, alle mensen die ik het heb laten zien vinden het leuk om door dit in anderhalve maand gerealiseerde tentoonstellingsverleden te dwalen. Ik ben enorm benieuwd hoe zo'n overzicht er over een paar jaar uit ziet.
+					Het is nu al leuk (vinden ook de datanerds, kunsthistorici en familieleden die er een kijkje namen) om door dit in anderhalve maand gerealiseerde tentoonstellingsverleden te dwalen. Ik ben enorm benieuwd hoe zo'n overzicht er over een jaar of wat uit ziet.
 				</p>
 
 				<p>
