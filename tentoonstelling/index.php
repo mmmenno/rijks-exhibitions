@@ -70,7 +70,7 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 $archives = array();
 $archiveids = array();
 foreach ($exhibition['results']['bindings'] as $k => $v) {
-	if(!in_array($v['archives']['value'],$archiveids) && isset($v['archive']['value']) ){
+	if(!in_array($v['archive']['value'],$archiveids) && isset($v['archive']['value']) ){
 		$archives[] = array(
 			"archive" => $v['archive']['value'],
 			"archivetitle" => $v['archivetitle']['value'],
