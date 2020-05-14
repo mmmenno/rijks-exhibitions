@@ -31,6 +31,7 @@ SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?cat) AS ?cCat)   
     (COUNT( distinct ?review) AS ?cReview) 
     (COUNT( distinct ?newsreel) AS ?cNewsreel) 
+    (COUNT( distinct ?arch) AS ?cArch) 
     WHERE {
   ?tt crm:P2_has_type <http://vocab.getty.edu/aat/300054766> .
   ?tt crm:P7_took_place_at rijks:103332 .
@@ -61,6 +62,10 @@ SELECT ?tt ?title ?start ?end ?wdtt
   }
   OPTIONAL{
     ?newsreel crm2:P65_shows_visual_item/crm2:P129_is_about ?tt .
+  }
+  OPTIONAL{
+    ?tt crm:P67i_is_referred_to_by ?arch .
+    ?arch crm:P2_has_type <http://vocab.getty.edu/aat/300026685> .
   }
   OPTIONAL{
     ?tt skos:closeMatch ?wdtt .

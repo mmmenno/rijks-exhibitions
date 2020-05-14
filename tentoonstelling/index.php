@@ -66,6 +66,20 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 	}
 }
 
+// archives
+$archives = array();
+$archiveids = array();
+foreach ($exhibition['results']['bindings'] as $k => $v) {
+	if(!in_array($v['archives']['value'],$archiveids) && isset($v['archive']['value']) ){
+		$archives[] = array(
+			"archive" => $v['archive']['value'],
+			"archivetitle" => $v['archivetitle']['value'],
+			"archiveid" => $v['archiveid']['value']
+		);
+		$archiveids [] = $v['archive']['value'];
+	}
+}
+
 // newsreels
 $newsreels = array();
 $newsreelids = array();
@@ -135,6 +149,13 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 			}
 			echo '<a target="_blank" class="catlink" href="'. $v . '">catalogus ' . $i . '</a>';
 		} 
+
+		//echo '<p class="small">';
+		foreach ($archives as $k => $v) { 
+			echo '<br /><div class="worksicon archives">archief</div>';
+			echo '<a class="small" target="_blank" href="'. $v['archive'] . '">' . $v['archivetitle'] . ' (NHA, 476.' . $v['archiveid'] . ')</a>';
+		} 
+		//echo '</p>';
 		?>
 
 

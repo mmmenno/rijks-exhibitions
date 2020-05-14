@@ -20,6 +20,7 @@ PREFIX rijks: <https://id.rijksmuseum.nl/>
 SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink 
         ?review ?reviewheadline ?reviewpaper ?reviewdate 
         ?newsreel ?newsreelmakerlabel ?newsreeltitle ?newsreelfile
+        ?archive ?archivetitle ?archiveid
         (SAMPLE(?title) AS ?title) ?img (SAMPLE(?desc) AS ?desc) (SAMPLE(?artist) AS ?artist) WHERE {
   VALUES ?tt {rijks:" . $_GET['id'] . "}
   ?tt crm:P7_took_place_at ?place .
@@ -52,6 +53,16 @@ SELECT ?exhtitle ?cat ?wdtt ?start ?end ?obj ?permalink
     ?tt crm2:P129i_is_subject_of ?cat .
   }
   OPTIONAL{
+    ?tt crm:P67i_is_referred_to_by ?archive .
+    ?archive crm:P2_has_type <http://vocab.getty.edu/aat/300026685> .
+    ?archive crm:P1_is_identified_by ?app .
+    ?app a crm:E41_Appellation .
+    ?app crm:P190_has_symbolic_content ?archivetitle .
+    ?archive crm:P1_is_identified_by ?archid .
+    ?archid a crm:E42_Identifier .
+    ?archid crm:P190_has_symbolic_content ?archiveid .
+  }
+  OPTIONAL{
     ?review schema:itemReviewed ?tt .
     ?review schema:headline ?reviewheadline .
     ?review schema:publisher ?reviewpaper .
@@ -75,5 +86,6 @@ $exhibition = json_decode($response,true);
 
 
 //print_r($exhibition);
+
 
 ?>

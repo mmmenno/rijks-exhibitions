@@ -60,13 +60,14 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 
 		<div class="row">
 			<div id="legend" class="col-sm">
-				<div class="worksicon rm-works">3</div>= RM objecten
-				<div class="worksicon rm-works-noimg">3</div>= RM objecten zonder afb
-				<div class="worksicon rkd-works">3</div>= RKDimages
-				<div class="worksicon wd-works">3</div>= Wikidata afbeeldingen
-				<div class="worksicon reviews">3</div>= krantenartikelen
+				<div class="worksicon rm-works">3</div>= werken Rijks
+				<div class="worksicon rm-works-noimg">3</div>= werken Rijks (geen afb)
+				<div class="worksicon rkd-works">3</div>= werken RKD
+				<div class="worksicon wd-works">3</div>= werken Wikidata
+				<div class="worksicon reviews">3</div>= recensies
 				<div class="worksicon rm-cats">1</div>= catalogi
 				<div class="worksicon openbeelden">1</div>= openbeelden
+				<div class="worksicon archives">1</div>= archieven
 				<div class="duration" style="width: 45px; display: inline-block;"></div> = duur tentoonstelling
 			</div>
 		</div>
@@ -86,6 +87,7 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 				$cats = $exh['cCat']['value'];
 				$reviews = $exh['cReview']['value'];
 				$openbeelden = $exh['cNewsreel']['value'];
+				$archives = $exh['cArch']['value'];
 
 				$duration = durationInfo($exh['start'],$exh['end']);
 				if($duration['days']){
@@ -124,6 +126,9 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 					}
 					if($openbeelden){
 						echo '<div class="worksicon openbeelden">' . $openbeelden . '</div>';
+					}
+					if($archives){
+						echo '<div class="worksicon archives">' . $archives . '</div>';
 					}
 					//echo $exh['start']['value'];
 				echo '</div>';

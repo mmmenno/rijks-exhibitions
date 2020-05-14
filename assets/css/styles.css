@@ -161,10 +161,13 @@ h1 a:hover, h1 a:visited{
 	background-color: #FD8F48;
 }
 .reviews{
-	background-color: #F3D5B3;
+	background-color: #cea36a;
 }
 .openbeelden{
 	background-color: #c148bb;
+}
+.archives{
+	background-color: #00d0d4;
 }
 .rm-works-noimg{
 	background-color: #ccc;
