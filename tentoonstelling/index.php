@@ -325,7 +325,7 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 
 
 
-		<?php if(isset($wdimages['results']['bindings'])){ ?>
+		<?php if(isset($wdimages['results']['bindings']) && count($wdimages['results']['bindings'])){ ?>
 
 		<h2>Tentoongestelde objecten volgens Wikidata</h2>
 
