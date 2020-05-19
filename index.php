@@ -15,6 +15,15 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 }
 //print_r($rkdworks);
 
+// out: $wikidatacount
+include("queries/wikidatacount.php");
+
+$wdworks = array();
+foreach ($wikidatacount['results']['bindings'] as $count) {
+	$wdworks[$count['tt']['value']] = $count['cWdobj']['value'];
+}
+//print_r($wdworks);
+
 
 
 
@@ -60,15 +69,16 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 
 		<div class="row">
 			<div id="legend" class="col-sm">
-				<div class="worksicon rm-works">3</div>= werken Rijks
-				<div class="worksicon rm-works-noimg">3</div>= werken Rijks (geen afb)
-				<div class="worksicon rkd-works">3</div>= werken RKD
-				<div class="worksicon wd-works">3</div>= werken Wikidata
-				<div class="worksicon reviews">3</div>= recensies
-				<div class="worksicon rm-cats">1</div>= catalogi
-				<div class="worksicon openbeelden">1</div>= openbeelden
-				<div class="worksicon archives">1</div>= archieven
-				<div class="duration" style="width: 45px; display: inline-block;"></div> = duur tentoonstelling
+				<div class="worksicon rm-works">3</div> werken Rijks
+				<div class="worksicon rm-works-noimg">3</div> idem (geen afb)
+				<div class="worksicon rkd-works">3</div> werken RKD
+				<div class="worksicon wd-works">3</div> werken Wikidata
+				<div class="worksicon reviews">3</div> recensies
+				<div class="worksicon hapics">3</div> foto's
+				<div class="worksicon rm-cats">1</div> catalogi
+				<div class="worksicon openbeelden">1</div> openbeelden
+				<div class="worksicon archives">1</div> archieven
+				<div class="duration" style="width: 45px; display: inline-block;"></div>  duur tentoonstelling
 			</div>
 		</div>
 
@@ -83,9 +93,9 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 				$ttid = str_replace("https://id.rijksmuseum.nl/", "", $exh['tt']['value']);
 				$rmworks = $exh['cRmImg']['value'];
 				$rmworkswithoutimgs = $exh['cRmNoImg']['value'];
-				$wdworks = $exh['cWdImg']['value'];
 				$cats = $exh['cCat']['value'];
 				$reviews = $exh['cReview']['value'];
+				$pics = $exh['cPic']['value'];
 				$openbeelden = $exh['cNewsreel']['value'];
 				$archives = $exh['cArch']['value'];
 
@@ -100,7 +110,8 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 				}
 
 				//print_r($exh);
-
+				//https://id.rijksmuseum.nl/1054001
+				//https://id.rijksmuseum.nl/1054001
 				echo '<div class="col-sm">';
 					echo '<h3><a href="tentoonstelling/?id=' . $ttid . '">' . $title . '</a></h3>';
 					echo '<div class="duration" style="' . $durationstyle . '"></div>';
@@ -115,14 +126,17 @@ foreach ($rkdcount['results']['bindings'] as $count) {
 					if(isset($rkdworks[$exh['tt']['value']])){
 						echo '<div class="worksicon rkd-works">' . $rkdworks[$exh['tt']['value']] . '</div>';
 					}
-					if($wdworks){
-						echo '<div class="worksicon wd-works">' . $wdworks . '</div>';
+					if(isset($wdworks[$exh['tt']['value']])){
+						echo '<div class="worksicon wd-works">' . $wdworks[$exh['tt']['value']] . '</div>';
 					}
 					if($cats){
 						echo '<div class="worksicon rm-cats">' . $cats . '</div>';
 					}
 					if($reviews){
 						echo '<div class="worksicon reviews">' . $reviews . '</div>';
+					}
+					if($pics){
+						echo '<div class="worksicon hapics">' . $pics . '</div>';
 					}
 					if($openbeelden){
 						echo '<div class="worksicon openbeelden">' . $openbeelden . '</div>';

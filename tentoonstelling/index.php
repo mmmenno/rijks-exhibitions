@@ -10,6 +10,10 @@ include("../queries/exhibition.php");
 include("../queries/rkd.php");
 
 
+// in: $_GET['id'] out: $exhibitionpics
+include("../queries/exhibitionphotographs.php");
+
+
 $wdimages = array();
 if(isset($exhibition['results']['bindings'][0]['wdtt']['value'])){
 	$wdtt = $exhibition['results']['bindings'][0]['wdtt']['value'];
@@ -272,6 +276,51 @@ foreach ($exhibition['results']['bindings'] as $k => $v) {
 
 		<?php } ?>
 
+
+
+		<?php if(count($exhibitionpics['results']['bindings'])){ ?>
+
+		<h2>Foto's van de tentoonstelling</h2>
+
+		<div class="row rkd">
+
+			<?php
+			$i = 0;
+			foreach ($exhibitionpics['results']['bindings'] as $img) {
+
+				$i++;
+
+				$title = $img['title']['value'];
+				$imgurl = false;
+				if(isset($img['img']['value'])){
+					$imgurl = str_replace("=s0", "", $img['img']['value']);
+				}
+				$permalink = $img['permalink']['value'];
+
+				
+
+				echo '<div class="col-sm exh-object">';
+					if($imgurl){
+						echo '<a target="_blank" href="' . $permalink . '"><img src="' . $imgurl . '" /></a>';
+					}else{
+						echo '<a class="no-img" target="_blank" href="' . $permalink . '">afbeelding niet beschikbaar</a>';
+					}
+					echo '<em>' . $title . "</em><br />";
+				echo '</div>';
+
+				if($i%6==0){
+					echo '</div>';
+					echo '<div class="row rkd">';
+				}
+			}
+			for($x=0; $x<(6-$i%6); $x++){
+				echo '<div class="col-sm">';
+				echo '</div>';
+			}
+			?>
+		</div>
+
+		<?php } ?>
 
 
 		<?php if(count($rkdimages['results']['bindings'])){ ?>

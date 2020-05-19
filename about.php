@@ -229,7 +229,7 @@ include("queries/exhibitionlist.php");
 				</p>
 
 				<p>
-					De foto's zijn nu nog niet te zien in deze demo-applicatie. Dat heeft vooral te maken met het feit dat het collectiesysteem eerst zo aangepast moet worden dat de foto's goed met de tentoonstellingsdata te verbinden zijn en die data vervolgens geëxporteerd moet kunnen worden. Manueel hadden we daar natuurlijk een mouw aan kunnen passen, maar we bewandelen liever de 'koninklijke weg', omdat niet deze demo, maar goed verbonden en toegankelijke data het doel is. Zodat daar in de toekomst allerlei toepassingen op gemaakt kunnen worden, en niet alleen deze ene.
+					Voor zover de foto's in Rijksstudio staan, worden ze ook op de tentoonstellingspagina getoond. In de overzichten wordt het aantal foto's vermeld in een icoontje, waarvan de kleur zich vermoedelijk het beste als oudroze laat omschrijven.
 				</p>
 
 				<p>

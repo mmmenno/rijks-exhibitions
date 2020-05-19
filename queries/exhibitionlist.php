@@ -27,11 +27,11 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 SELECT ?tt ?title ?start ?end ?wdtt
     (COUNT( distinct ?rmobj1) AS ?cRmImg) 
     (COUNT( distinct ?rmobj2) AS ?cRmNoImg) 
-    (COUNT( distinct ?wdobj) AS ?cWdImg)  
     (COUNT( distinct ?cat) AS ?cCat)   
     (COUNT( distinct ?review) AS ?cReview) 
     (COUNT( distinct ?newsreel) AS ?cNewsreel) 
     (COUNT( distinct ?arch) AS ?cArch) 
+    (COUNT( distinct ?pic) AS ?cPic) 
     WHERE {
   ?tt crm:P2_has_type <http://vocab.getty.edu/aat/300054766> .
   ?tt crm:P7_took_place_at rijks:103332 .
@@ -68,11 +68,10 @@ SELECT ?tt ?title ?start ?end ?wdtt
     ?arch crm:P2_has_type <http://vocab.getty.edu/aat/300026685> .
   }
   OPTIONAL{
-    ?tt skos:closeMatch ?wdtt .
-    FILTER STRSTARTS(STR(?wdtt),'http://www.wikidata.org') .
-    SERVICE <https://query.wikidata.org/sparql> {
-      ?wdobj wdt:P608 ?wdtt .
-    }
+    ?visitem crm:P138_represents ?tt .
+    ?pic crm:P65_shows_visual_item ?visitem .
+    ?pic crm:P1_is_identified_by ?identifier .
+   FILTER STRSTARTS(STR(?identifier),'http://hdl.handle.net/10934') .
   }
   
 } 
@@ -80,6 +79,7 @@ SELECT ?tt ?title ?start ?end ?wdtt
 ORDER BY ASC(?start)
 LIMIT 1500";
 
+//echo $sparql;
 
 $endpoint = 'https://api.data.netwerkdigitaalerfgoed.nl/datasets/rijksmuseum/RM-PublicDomainImages/services/RM-PublicDomainImages/sparql';
 
