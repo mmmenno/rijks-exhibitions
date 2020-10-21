@@ -49,12 +49,6 @@ SELECT ?tt ?title ?start ?end ?wdtt
     ?aggr1 edm:dataProvider \"Rijksmuseum\" .
   }
   OPTIONAL{
-    ?tt crm:P16_used_specific_object ?rmobj2 .
-    ?aggr2 edm:aggregatedCHO ?rmobj2 .
-    FILTER NOT EXISTS{?aggr2 edm:isShownBy ?img}
-    ?aggr2 edm:dataProvider \"Rijksmuseum\" .
-  }
-  OPTIONAL{
     ?tt crm2:P129i_is_subject_of ?cat .
   }
   OPTIONAL{
@@ -78,6 +72,18 @@ SELECT ?tt ?title ?start ?end ?wdtt
 #GROUP BY ?tt ?title ?start ?end
 ORDER BY ASC(?start)
 LIMIT 1500";
+
+/*
+  
+  # deleted this part from query to stop Virtuoso erroring: The estimated execution time 840 (sec) exceeds the limit of 800 (sec)
+  OPTIONAL{
+    ?tt crm:P16_used_specific_object ?rmobj2 .
+    ?aggr2 edm:aggregatedCHO ?rmobj2 .
+    FILTER NOT EXISTS{?aggr2 edm:isShownBy ?img}
+    ?aggr2 edm:dataProvider \"Rijksmuseum\" .
+  }
+
+*/
 
 //echo $sparql;
 

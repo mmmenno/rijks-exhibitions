@@ -70,7 +70,7 @@ foreach ($wikidatacount['results']['bindings'] as $count) {
 		<div class="row">
 			<div id="legend" class="col-sm">
 				<div class="worksicon rm-works">3</div> werken Rijks
-				<div class="worksicon rm-works-noimg">3</div> idem (geen afb)
+				<!-- <div class="worksicon rm-works-noimg">3</div> idem (geen afb) -->
 				<div class="worksicon rkd-works">3</div> werken RKD
 				<div class="worksicon wd-works">3</div> werken Wikidata
 				<div class="worksicon reviews">3</div> recensies
