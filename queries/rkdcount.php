@@ -18,7 +18,8 @@ GROUP BY ?tt
 LIMIT 1000";
 
 
-$endpoint = 'https://api.data.netwerkdigitaalerfgoed.nl/datasets/rijksmuseum/RM-PublicDomainImages/services/RM-PublicDomainImages/sparql';
+//$endpoint = 'https://api.data.netwerkdigitaalerfgoed.nl/datasets/rijksmuseum/RM-PublicDomainImages/services/RM-PublicDomainImages/sparql';
+$endpoint = 'https://api.data.netwerkdigitaalerfgoed.nl/datasets/rijksmuseum/collection/services/collection/sparql';
 
 $response = getSparqlResults($endpoint,$sparql);
 
